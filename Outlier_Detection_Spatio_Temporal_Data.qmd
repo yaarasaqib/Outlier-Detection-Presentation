@@ -18,8 +18,7 @@ format:
 editor: visual
 ---
 
-
-
+## 
 :::::::::: {style="display:flex; width:100%; height:80vh; align-items:center;"}
 
 :::::::: {style="width:60%; text-align:left; padding-left:40px;"}
@@ -82,23 +81,16 @@ style="width:180px; margin-bottom:50px; border:none; box-shadow:none;">
 
 <img src="Images/statistics_kaust_logo.jpg"
 style="width:250px; border:none; box-shadow:none;">
+
 :::
 ::::::::::
 
+
 ## {background-color="#000000"}
 
-<div style="
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:64px;
-font-weight:700;
-color:white;
-letter-spacing:2px;
-">
+::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Outlier
-</div>
+:::
 
 # What is Outlier?
 
@@ -170,158 +162,126 @@ Outliers in two dimensions can be analyzed using graphical and quantitative appr
 
 [@shekhar2003spatial; @kutner2004applied]
 
-
 # Defining Outliers
 
-:::::: columns
-
-::: {.column width="33%"}
-
-::: fragment
+::::::::::::::: columns
+:::::: {.column width="33%"}
+::::: fragment
 ```{=html}
 <img src="Images/dog.png"
 style="width:100%; height:190px; object-fit:cover;
 border-radius:10px; border:none; box-shadow:none;">
 ```
 
-<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+::: {style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;"}
 Different Object
-</div>
+:::
 
-<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+::: {style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;"}
 A dog among cats can be considered an outlier because it differs substantially from the majority group.
-</div>
 :::
+:::::
+::::::
 
-:::
-
-::: {.column width="33%"}
-
-::: fragment
+:::::: {.column width="33%"}
+::::: fragment
 ```{=html}
 <img src="Images/tall.png"
 style="width:100%; height:190px; object-fit:cover;
 border-radius:10px; border:none; box-shadow:none;">
 ```
 
-<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+::: {style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;"}
 Extreme Height
-</div>
+:::
 
-<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+::: {style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;"}
 An extremely tall individual compared to the surrounding population may represent an outlier.
-</div>
 :::
+:::::
+::::::
 
-:::
-
-::: {.column width="33%"}
-
-::: fragment
+:::::: {.column width="33%"}
+::::: fragment
 ```{=html}
 <img src="Images/fat.png"
 style="width:100%; height:190px; object-fit:cover;
 border-radius:10px; border:none; box-shadow:none;">
 ```
 
-<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+::: {style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;"}
 Distinct Observation
-</div>
+:::
 
-<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+::: {style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;"}
 An observation that differs strongly from the majority pattern can be flagged as an outlier.
-</div>
 :::
-
-:::
-
+:::::
 ::::::
+:::::::::::::::
 
 ::: {style="font-size:13px; margin-top:18px; text-align:right;"}
 Images generated for illustrative purposes.
 :::
 
+
+
+
 ## {background-color="#000000"}
 
-<div style="
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:64px;
-font-weight:700;
-color:white;
-letter-spacing:2px;
-">
+::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Definitions
-</div>
-
+:::
 
 
 ## 1. Amplitude Outliers
+
 An amplitude outlier is a functional observation that follows a similar overall shape as the majority of curves but has unusually large or small magnitude variations.
 
 $$
 y(t) = a\,\mu(t)
 $$
 
-![](images/amplitude_outlier.png){ width=100% fig-align="center" }
-
-
-
-
+![](images/amplitude_outlier.png){width="100%" fig-align="center"}
 
 ## 2. Magnitude Outliers
 
-
- A magnitude outlier is a functional observation whose values are consistently larger or smaller than the central function while preserving a similar shape. 
-
+A magnitude outlier is a functional observation whose values are consistently larger or smaller than the central function while preserving a similar shape.
 
 $$
 y(t) = \mu(t) + c
 $$
 
-![](images/magnitude_outlier.png){ width=100% fig-align="center" }
-
-
-
-
-
-
+![](images/magnitude_outlier.png){width="100%" fig-align="center"}
 
 ## 3. Shape Outliers
 
-
-A shape outlier is a functional observation whose overall pattern or shape differs from the central tendency of the sample, regardless of its magnitude or amplitude. 
-
+A shape outlier is a functional observation whose overall pattern or shape differs from the central tendency of the sample, regardless of its magnitude or amplitude.
 
 $$ 
 y(t) \not\approx a \cdot \mu(t) + c
 $$
 
-![](images/shape_outlier.png){ width=100% fig-align="center" }
+![](images/shape_outlier.png){width="100%" fig-align="center"}
 
 ## 4. Trend Outliers
 
 Trend outliers are curves that exhibit unusual temporal patterns compared to the majority of observations in the dataset.
 
-| Type | Example |
-|---|---|
-| Linear trend | $a + bt$ |
-| Polynomial trend | $a + bt + ct^{2}$ |
-| Exponential trend | $ae^{bt}$ |
-| Cyclic trend | Repeated periodic fluctuations over time |
-
+| Type              | Example                                  |
+|-------------------|------------------------------------------|
+| Linear trend      | $a + bt$                                 |
+| Polynomial trend  | $a + bt + ct^{2}$                        |
+| Exponential trend | $ae^{bt}$                                |
+| Cyclic trend      | Repeated periodic fluctuations over time |
 
 ## 4. Trend Outliers
 
 <br>
 
-:::::: columns
-
-::: {.column width="50%"}
-
-::: fragment
+::::::::: columns
+::::: {.column width="50%"}
+:::: fragment
 ```{=html}
 <img src="images/Simulated_TS_Trend.png"
 style="width:90%; height:260px; object-fit:contain;
@@ -329,16 +289,14 @@ display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
 ```
 
-<div style="text-align:center; font-size:16px; margin-top:10px;">
+::: {style="text-align:center; font-size:16px; margin-top:10px;"}
 Simulated time series illustrating different trends.
-</div>
 :::
+::::
+:::::
 
-:::
-
-::: {.column width="50%"}
-
-::: fragment
+::::: {.column width="50%"}
+:::: fragment
 ```{=html}
 <img src="images/Linear_Trend_Based_Outlier_illust.png"
 style="width:90%; height:260px; object-fit:contain;
@@ -346,269 +304,209 @@ display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
 ```
 
-<div style="text-align:center; font-size:16px; margin-top:10px;">
+::: {style="text-align:center; font-size:16px; margin-top:10px;"}
 Examples of baseline linear trend patterns.
-</div>
 :::
-
-:::
-
-::::::
+::::
+:::::
+:::::::::
 
 <br>
 
-::: fragment
-<div style="font-size:20px; text-align:center;">
+:::: fragment
+::: {style="font-size:20px; text-align:center;"}
 A linear trend is fitted to each curve, and observations with slope values below the 5th percentile or above the 95th percentile are identified as outliers.
-</div>
 :::
+::::
 
 ## 5. Depth Outliers
 
-<div class="fragment">
-
-A data depth concept can be viewed as a generalization of quantiles to multivariate data.  
-It measures the centrality (depth) of a given point in $\mathbb{R}^n$, assuming  
+::: fragment
+A data depth concept can be viewed as a generalization of quantiles to multivariate data.\
+It measures the centrality (depth) of a given point in $\mathbb{R}^n$, assuming\
 $X_1, \ldots, X_k$ is a random sample from $\mathbb{R}^n$ [@Dyckerhoff2020ProjectionDepth; @TuftsDataDepth]
-
-</div>
+:::
 
 <br>
 
-::: fragment
-
+:::: fragment
 ### Mahalanobis Depth
 
 $$
 D_M(x)=\frac{1}{1+(x-\mu)^\top \Sigma^{-1}(x-\mu)}
 $$ [@Dyckerhoff2020ProjectionDepth]
 
-<div style="font-size:18px; margin-top:10px;">
+::: {style="font-size:18px; margin-top:10px;"}
 Here, $\mu$ and $\Sigma$ denote the mean vector and covariance matrix, respectively. Larger depth values indicate more central observations.
-</div>
-
 :::
+::::
 
----
-
+------------------------------------------------------------------------
 
 ## 5.1 Mahalanobis Depth
 
-<div class="fragment">
+::: fragment
+![](Images/Malhanobis_Depth.png){width="75%" fig-align="center"}
+:::
 
-![](Images/Malhanobis_Depth.png){width=75% fig-align="center"}
-
-</div>
-
----
-
+------------------------------------------------------------------------
 
 ## 5.2 Tukey Depth [@tukey1975picturing]
 
-<div class="fragment">
+::: fragment
+![](Images/Tukey_Depth.png){width="75%" fig-align="center"}
+:::
 
-![](Images/Tukey_Depth.png){width=75% fig-align="center"}
-
-</div>
-
----
+------------------------------------------------------------------------
 
 ## 5.3 Spatial Depth [@Nagy2017MonotonicitySpatialDepth]
 
-<div class="fragment">
-
-![](Images/Spatial_Depth.png){width=75% fig-align="center"}
-
-</div>
-
+::: fragment
+![](Images/Spatial_Depth.png){width="75%" fig-align="center"}
+:::
 
 ## 5.1 Illustration of Outlier Dtection using Malhanobis Depth
 
-::: {.columns}
-
+::::::: columns
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Depth_Values_Malhanobis_Illustration.png){width=100%}
+::: fragment
+![](images/Depth_Values_Malhanobis_Illustration.png){width="100%"}
 
 Depth values calculated for different curves. Small depths values are considered outliers
-
 :::
-
 ::::
 
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Depth_Malhanobis_TS_Outliers.png){width=100%}
+::: fragment
+![](images/Depth_Malhanobis_TS_Outliers.png){width="100%"}
 
 The plots of curves and outliers highligted in black .
-
 :::
-
 ::::
-
-:::
+:::::::
 
 ## 6. Frequency Outlier
 
 Frequency outliers are curves whose oscillation frequency differs significantly from that of the majority of curves in the dataset.
 
-<div class="fragment">
-
+::: fragment
 $$
 y(t)=\sin(2\pi f t)
 $$
 
-where \(f\) denotes the oscillation frequency.
+where (f) denotes the oscillation frequency.
 
 $$
 f=\frac{1}{T}
 $$
 
-where \(T\) is the period of oscillation.
-
-</div>
+where (T) is the period of oscillation.
+:::
 
 ## 6. Illustration of Frequency Outliers
 
-::: {.columns}
-
+::::::: columns
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Dominant_Freq_County_Plot.png){width=100%}
+::: fragment
+![](images/Dominant_Freq_County_Plot.png){width="100%"}
 
 Dominant frequency estimated for each county using spectral analysis.
-
 :::
-
 ::::
 
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Freq_O_Illust_TS.png){width=100%}
+::: fragment
+![](images/Freq_O_Illust_TS.png){width="100%"}
 
 Highlighted curves correspond to counties whose oscillation frequencies differ substantially from the majority of curves.
-
 :::
-
 ::::
-
-:::
+:::::::
 
 ## 7. Distance Outlier
 
 Distance outliers are functional observations whose distance from a central reference curve, such as the mean or median curve, is unusually large or unusually small compared to the majority of curves in the dataset.
 
-<div class="fragment">
-
+::: fragment
 $$
 d_i = d\!\left(y_i(t),\, \mu(t)\right)
 $$
 
 where $mu(t)$ denotes the central curve and $d_i$is the distance measure.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 $$
 d_i > Q_{1-\alpha}
 $$
 
 may be classified as a distance outlier, where $Q_{1-\alpha}$ denotes the $(1-\alpha)$-quantile of the distance distribution.
+:::
 
-</div>
+------------------------------------------------------------------------
 
----
-
-::: {.columns}
-
+::::::: columns
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Distance_Outlier_Curves.png){width=100%}
+::: fragment
+![](images/Distance_Outlier_Curves.png){width="100%"}
 
 Illustration of distance-based outlier curves.
-
 :::
-
 ::::
 
 :::: {.column width="50%"}
-
-::: {.fragment}
-
-![](images/Distance_Outlier_Measure.png){width=100%}
+::: fragment
+![](images/Distance_Outlier_Measure.png){width="100%"}
 
 Distance values used to identify outlying curves.
-
 :::
-
 ::::
+:::::::
 
-:::
+
 
 
 ## {background-color="#000000"}
 
-<div style="
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:64px;
-font-weight:700;
-color:white;
-letter-spacing:2px;
-">
+::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Methods to Detect Outliers
-</div>
-
+:::
 
 
 # Methods Used
 
-::: {.incremental}
+::: incremental
+1.  **SVTT Method using SaTScan**
 
-1. **SVTT Method using SaTScan**
+2.  **Functional Box-Plot**
 
-2. **Functional Box-Plot**
+3.  **Trend-Based Outliers**
 
-3. **Trend-Based Outliers**
-   - Linear Trend Outliers
+    -   Linear Trend Outliers
 
-4. **Distance-Based Method**
+4.  **Distance-Based Method**
 
-5. **Depth-Based Method**
+5.  **Depth-Based Method**
 
-6. **Functional Depth**
+6.  **Functional Depth**
 
-7. **MUOD**  
-   *(Massive Unsupervised Outlier Detection)*
-
+7.  **MUOD**\
+    *(Massive Unsupervised Outlier Detection)*
 :::
 
 ## 1. Spatial Variation in Temporal Trends (SVTT)
 
-::: {.incremental}
+::: incremental
+-   Detects regions with unusual temporal trends.
 
-- Detects regions with unusual temporal trends.
+-   Compares trends inside and outside a spatial window.
 
-- Compares trends inside and outside a spatial window.
+-   Implemented in **SaTScan** using the **Discrete Poisson Model**.
 
-- Implemented in **SaTScan** using the **Discrete Poisson Model**.
+-   Types:
 
-- Types:
-  - Linear SVTT
-  - Quadratic SVTT
+    -   Linear SVTT
+    -   Quadratic SVTT
 
 $$
 H_0:\text{Trend}_{in}=\text{Trend}_{out}
@@ -617,83 +515,64 @@ $$
 $$
 H_1:\text{Trend}_{in}\neq \text{Trend}_{out}
 $$
-
 :::
 
 [@MoragaKulldorff2016; @kulldorff2022satscan]
 
-
-
-
 ## 2. Functional Box-Plot
 
-::: {.incremental}
+::: incremental
+-   Extension of the classical boxplot for functional data.
 
-- Extension of the classical boxplot for functional data.
+-   Summarizes an entire collection of curves using functional depth.
 
-- Summarizes an entire collection of curves using functional depth.
+-   Displays:
 
-- Displays:
-  - Median curve
-  - Central region
-  - Envelope
-  - Functional outliers
+    -   Median curve
+    -   Central region
+    -   Envelope
+    -   Functional outliers
 
-- Provides an overall visualization of variability and outlying behavior in functional data.
-
+-   Provides an overall visualization of variability and outlying behavior in functional data.
 :::
 
 [@Sun2011FunctionalBoxplots]
 
-
----
+------------------------------------------------------------------------
 
 ## 2. Functional Boxplot Illustration
 
-<div class="fragment">
-
-![](Images/functional_boxplot.png){width=80% fig-align="center"}
-
-</div>
-
-
-
+::: fragment
+![](Images/functional_boxplot.png){width="80%" fig-align="center"}
+:::
 
 ## 2. Trend-Based Outliers
 
-<div style="font-size:0.58em; line-height:1.08;">
-
-<div class="fragment">
-
-Let  
+::::::::: {style="font-size:0.58em; line-height:1.08;"}
+::: fragment
+Let
 
 $$
 y_1(t), y_2(t), \ldots, y_k(t)
 $$
 
-denote the temporal functions of $k$ regions observed at time points  
+denote the temporal functions of $k$ regions observed at time points
 
 $$
 t_1, t_2, \ldots, t_n.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Algorithm
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 1:**  
+::: fragment
+**Step 1:**\
 Fit a suitable trend model separately for each region using a small number of parameters, such as Linear, Quadratic, and Exponential trends.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 For example, a linear trend model may be written as
 
 $$
@@ -701,12 +580,10 @@ y_i(t)=\beta_{0i}+\beta_{1i}t+\varepsilon_i(t),
 $$
 
 where $\beta_{0i}$ and $\beta_{1i}$ represent the trend parameters for region $i$.
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 2:**  
+::: fragment
+**Step 2:**\
 Treat the estimated parameter vectors
 
 $$
@@ -714,55 +591,41 @@ $$
 $$
 
 as observations in lower-dimensional space and apply standard outlier detection techniques.
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 3:**  
+::: fragment
+**Step 3:**\
 Regions whose parameter vectors are detected as unusual are identified as trend-based outliers.
-
-</div>
-
-</div>
-
-
+:::
+:::::::::
 
 ## 3. Distance-Based Outliers
 
-<div style="font-size:0.58em; line-height:1.08;">
-
-<div class="fragment">
-
-Let  
+::::::::: {style="font-size:0.58em; line-height:1.08;"}
+::: fragment
+Let
 
 $$
 y_1(t), y_2(t), \ldots, y_k(t)
 $$
 
-denote the temporal functions of $k$ regions observed at time points  
+denote the temporal functions of $k$ regions observed at time points
 
 $$
 t_1, t_2, \ldots, t_n.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Algorithm
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 1:**  
+::: fragment
+**Step 1:**\
 Compute the distance between each curve and a central curve, such as the mean or median curve.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 For example, the Euclidean distance between curve $y_i(t)$ and the central curve $c(t)$ is
 
 $$
@@ -774,31 +637,23 @@ y_i(t_j)-c(t_j)
 \right)^2
 }.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 2:**  
+::: fragment
+**Step 2:**\
 Use the obtained distances as one-dimensional observations and apply standard outlier detection methods.
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 3:**  
+::: fragment
+**Step 3:**\
 Curves having unusually large distances from the central curve are identified as distance-based outliers.
-
-</div>
-
-</div>
+:::
+:::::::::
 
 ## 3. Commonly Used Distance Measures
 
-<div style="font-size:0.58em; line-height:1.08;">
-
-<div class="fragment">
-
+::::::: {style="font-size:0.58em; line-height:1.08;"}
+::: fragment
 ### Euclidean Distance
 
 $$
@@ -807,22 +662,18 @@ d(x,y)=
 \sum_{i=1}^{n}(x_i-y_i)^2
 }
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Manhattan Distance
 
 $$
 d(x,y)=
 \sum_{i=1}^{n}|x_i-y_i|
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Mahalanobis Distance
 
 $$
@@ -831,11 +682,9 @@ d(x,y)=
 (x-y)^\top \Sigma^{-1}(x-y)
 }
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Cosine Distance
 
 $$
@@ -844,55 +693,36 @@ d(x,y)=
 \frac{x^\top y}
 {\|x\|\|y\|}
 $$
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
+:::
+:::::::
 
 ## 4. Depth-Based Outliers
 
-<div style="font-size:0.58em; line-height:1.08;">
-
-<div class="fragment">
-
-Let  
+::::::::: {style="font-size:0.58em; line-height:1.08;"}
+::: fragment
+Let
 
 $$
 y_1(t), y_2(t), \ldots, y_k(t)
 $$
 
-denote the temporal functions of $k$ regions observed at time points  
+denote the temporal functions of $k$ regions observed at time points
 
 $$
 t_1, t_2, \ldots, t_n.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Algorithm
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 1:**  
+::: fragment
+**Step 1:**\
 Compute a depth value for each curve, which measures the centrality of the curve relative to the remaining curves.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 A general depth function may be written as
 
 $$
@@ -900,34 +730,23 @@ D(y_i \mid Y),
 $$
 
 where $Y=\{y_1,y_2,\ldots,y_k\}$ denotes the collection of all curves.
+:::
 
-</div>
-
-
-
-<div class="fragment">
-
-**Step 2:**  
+::: fragment
+**Step 2:**\
 Use the obtained depth values as one-dimensional observations and apply standard outlier detection methods.
+:::
 
-</div>
-
-<div class="fragment">
-
-**Step 3:**  
+::: fragment
+**Step 3:**\
 Curves with unusually small depth values are identified as depth-based outliers.
-
-</div>
-
-</div>
-
+:::
+:::::::::
 
 ## Commonly Used Depth Measures
 
-<div style="font-size:0.58em; line-height:1.08;">
-
-<div class="fragment">
-
+::::::::::: {style="font-size:0.58em; line-height:1.08;"}
+::: fragment
 ### Mahalanobis Depth
 
 $$
@@ -938,11 +757,9 @@ D_M(x)=
 1+(x-\mu)^\top\Sigma^{-1}(x-\mu)
 }
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Spatial Depth
 
 $$
@@ -954,11 +771,9 @@ D_S(x)=
 \frac{x-X_i}{\|x-X_i\|}
 \right\|
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Tukey Depth
 
 $$
@@ -966,11 +781,9 @@ D_T(x)=
 \inf_{u\in S^{d-1}}
 P(u^\top X \le u^\top x)
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::::::: fragment
 ### Modified Band Depth (MBD)
 
 $$
@@ -984,88 +797,58 @@ $$
 }
 $$
 
-<div style="font-size:0.50em; line-height:1.0;">
+:::::: {style="font-size:0.50em; line-height:1.0;"}
+::::: {style="display:flex; gap:40px;"}
+::: {style="width:50%;"}
+-   $A(x;x_i,x_j)$ : set where $x(t)$ lies inside the band formed by $x_i(t)$ and $x_j(t)$
 
-<div style="display:flex; gap:40px;">
+-   $\lambda(\cdot)$ : Lebesgue measure
 
-<div style="width:50%;">
+-   $T$ : observation time domain
+:::
 
-- $A(x;x_i,x_j)$ : set where $x(t)$ lies inside the band formed by $x_i(t)$ and $x_j(t)$  
+::: {style="width:50%;"}
+-   $X$ : random vector
 
-- $\lambda(\cdot)$ : Lebesgue measure  
+-   $u$ : projection direction
 
-- $T$ : observation time domain  
-
-</div>
-
-<div style="width:50%;">
-
-- $X$ : random vector  
-
-- $u$ : projection direction  
-
-- $S^{d-1}$ : unit sphere in $\mathbb{R}^d$  
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-
+-   $S^{d-1}$ : unit sphere in $\mathbb{R}^d$
+:::
+:::::
+::::::
+:::::::
+:::::::::::
 
 
 
 ## {background-color="#000000"}
 
-<div style="
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:64px;
-font-weight:700;
-color:white;
-letter-spacing:2px;
-">
+::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Simulation Study Results
-</div>
-
+:::
 
 
 ## Simulation Data Generation
 
-<div style="font-size:0.62em; line-height:1.12;">
-
-<div class="fragment">
-
+:::::::::: {style="font-size:0.62em; line-height:1.12;"}
+:::::: fragment
 Synthetic datasets were generated under different temporal trend scenarios:
 
-<div style="display:flex; gap:60px;">
+::::: {style="display:flex; gap:60px;"}
+::: {style="width:50%;"}
+-   Parabolic\
+-   Linear\
+-   Cyclic
+:::
 
-<div style="width:50%;">
+::: {style="width:50%;"}
+-   Increasing\
+-   Decreasing
+:::
+:::::
+::::::
 
-- Parabolic  
-- Linear  
-- Cyclic  
-
-</div>
-
-<div style="width:50%;">
-
-- Increasing  
-- Decreasing  
-
-</div>
-
-</div>
-
-</div>
-
-<div class="fragment">
-
+::: fragment
 For each spatial unit $i=1,\ldots,n$ and time point $t=1,\ldots,T$,
 
 $$
@@ -1077,103 +860,71 @@ where
 $$
 \lambda_{it}=E_{it}\theta_{it}.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 The expected number of cases was assumed constant across space and time:
 
 $$
 E_{it}=100.
 $$
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 Different temporal risk functions $\theta_{it}$ were used to generate various trend patterns.
-
-</div>
-
-</div>
-
-
+:::
+::::::::::
 
 ## Simulated Temporal Trends
 
-<div style="font-size:0.55em;">
-
-<div class="fragment">
-
-<div style="display:flex; justify-content:space-between; gap:15px;">
-
-<div style="width:32%; text-align:center;">
-
-![](Images/Parabolas.png){width=100%}
+:::::::::::: {style="font-size:0.55em;"}
+::::::: fragment
+:::::: {style="display:flex; justify-content:space-between; gap:15px;"}
+::: {style="width:32%; text-align:center;"}
+![](Images/Parabolas.png){width="100%"}
 
 Parabolic Trends
+:::
 
-</div>
-
-<div style="width:32%; text-align:center;">
-
-![](Images/Linear.png){width=100%}
+::: {style="width:32%; text-align:center;"}
+![](Images/Linear.png){width="100%"}
 
 Linear Trends
+:::
 
-</div>
-
-<div style="width:32%; text-align:center;">
-
-![](Images/cyclic.png){width=100%}
+::: {style="width:32%; text-align:center;"}
+![](Images/cyclic.png){width="100%"}
 
 Cyclic Trends
-
-</div>
-
-</div>
-
-</div>
+:::
+::::::
+:::::::
 
 <br>
 
-<div class="fragment">
-
-<div style="display:flex; justify-content:center; gap:35px;">
-
-<div style="width:32%; text-align:center;">
-
-![](Images/increases.png){width=100%}
+:::::: fragment
+::::: {style="display:flex; justify-content:center; gap:35px;"}
+::: {style="width:32%; text-align:center;"}
+![](Images/increases.png){width="100%"}
 
 Increasing Trends
+:::
 
-</div>
-
-<div style="width:32%; text-align:center;">
-
-![](Images/decreasings.png){width=100%}
+::: {style="width:32%; text-align:center;"}
+![](Images/decreasings.png){width="100%"}
 
 Decreasing Trends
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+:::
+:::::
+::::::
+::::::::::::
 
 ## Metrics Used for Analysis
 
-<div style="font-size:0.50em; line-height:1.08;">
-
-<div style="display:flex; gap:40px;">
-
-<div style="width:50%;">
-
-<div class="fragment">
-
+:::::::::::::: {style="font-size:0.50em; line-height:1.08;"}
+::::::::::::: {style="display:flex; gap:40px;"}
+::::::: {style="width:50%;"}
+::: fragment
 ### Sensitivity
 
 $$
@@ -1182,11 +933,9 @@ $$
 $$
 
 Proportion of true outliers correctly identified.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Specificity
 
 $$
@@ -1195,11 +944,9 @@ $$
 $$
 
 Proportion of normal observations correctly identified.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Positive Predictive Value (PPV)
 
 $$
@@ -1208,11 +955,9 @@ $$
 $$
 
 Proportion of detected outliers that are truly outliers.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Purity
 
 $$
@@ -1221,15 +966,11 @@ $$
 $$
 
 Measures homogeneity within detected groups.
+:::
+:::::::
 
-</div>
-
-</div>
-
-<div style="width:50%;">
-
-<div class="fragment">
-
+::::::: {style="width:50%;"}
+::: fragment
 ### Rand Index (RI)
 
 $$
@@ -1238,11 +979,9 @@ RI=
 $$
 
 Measures similarity between true and detected classifications.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Adjusted Rand Index (ARI)
 
 $$
@@ -1252,11 +991,9 @@ ARI=
 $$
 
 Chance-adjusted version of RI.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Jaccard Index
 
 $$
@@ -1265,23 +1002,16 @@ J=
 $$
 
 Measures overlap between detected and true outlier sets.
+:::
 
-</div>
-
-<div class="fragment">
-
+::: fragment
 ### Computation Time
 
 Average time required to perform outlier detection for 1 dataset.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+:::
+:::::::
+:::::::::::::
+::::::::::::::
 
 ## Sensitivity Heatmap
 
@@ -1361,115 +1091,43 @@ style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
 
-
-
-
 ## {background-color="#000000"}
 
-<div style="
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:64px;
-font-weight:700;
-color:white;
-letter-spacing:2px;
-">
-Application on Real Dataset
-</div>
+:::::::::: {style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;"}
 
-
-
-
-
-
-
-
-
-
-
-
-
-## {background-color="#000000"}
-
-<div style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;">
-
-<div style="
-position:absolute;
-top:34%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:92px;
-color:#FFFFFF;
-letter-spacing:2px;">
+::: {style="position:absolute; top:34%; left:50%; transform:translate(-50%,-50%); font-size:92px; color:#FFFFFF; letter-spacing:2px;"}
 Thank You
-</div>
+:::
 
-<div style="
-position:absolute;
-top:12%;
-left:8%;
-font-size:68px;
-color:#FFD700;
-transform:rotate(14deg);">
+::: {style="position:absolute; top:12%; left:8%; font-size:68px; color:#FFD700; transform:rotate(14deg);"}
 धन्यवाद
-</div>
+:::
 
-<div style="
-position:absolute;
-top:14%;
-right:8%;
-font-size:58px;
-color:#87CEFA;
-transform:rotate(-12deg);">
+::: {style="position:absolute; top:14%; right:8%; font-size:58px; color:#87CEFA; transform:rotate(-12deg);"}
 شکریہ
-</div>
+:::
 
-<div style="
-position:absolute;
-top:58%;
-left:10%;
-font-size:56px;
-color:#90EE90;
-transform:rotate(10deg);">
+::: {style="position:absolute; top:58%; left:10%; font-size:56px; color:#90EE90; transform:rotate(10deg);"}
 ধন্যবাদ
-</div>
+:::
 
-<div style="
-position:absolute;
-top:56%;
-right:10%;
-font-size:50px;
-color:#FFB6C1;
-transform:rotate(-16deg);">
+::: {style="position:absolute; top:56%; right:10%; font-size:50px; color:#FFB6C1; transform:rotate(-16deg);"}
 شكراً
-</div>
+:::
 
-<div style="
-position:absolute;
-bottom:12%;
-left:34%;
-font-size:46px;
-color:#FFA07A;
-transform:rotate(15deg);">
+::: {style="position:absolute; bottom:12%; left:34%; font-size:46px; color:#FFA07A; transform:rotate(15deg);"}
 Gracias
-</div>
+:::
 
-<div style="
-position:absolute;
-bottom:10%;
-right:14%;
-font-size:40px;
-color:#DDA0DD;
-transform:rotate(-10deg);">
+::: {style="position:absolute; bottom:10%; right:14%; font-size:40px; color:#DDA0DD; transform:rotate(-10deg);"}
 धन्यवाद!
-</div>
+:::
 
-</div>
-
+::::::::::
 
 ------------------------------------------------------------------------
+
 # References
+
 ::: {#refs}
 :::
