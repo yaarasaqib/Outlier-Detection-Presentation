@@ -19,10 +19,9 @@ editor: visual
 ---
 
 ## 
-:::::::::: {style="display:flex; width:100%; height:80vh; align-items:center;"}
 
-:::::::: {style="width:60%; text-align:left; padding-left:40px;"}
-
+:::::::::::::::: {style="display:flex; width:100%; height:80vh; align-items:center;"}
+:::::::::::::: {style="width:60%; text-align:left; padding-left:40px;"}
 ::: {style="font-size:46px; font-weight:800; color:#003A70; margin-bottom:20px; line-height:1.15;"}
 Outlier Detection in Spatio-Temporal Data
 :::
@@ -31,8 +30,7 @@ Outlier Detection in Spatio-Temporal Data
 Geospatial Statistics and Health Surveillance Research Group
 :::
 
-::::: {style="line-height:1.35;"}
-
+::::::::::: {style="line-height:1.35;"}
 ::: {style="font-size:30px; font-weight:800; color:#000000; margin-bottom:6px;"}
 Mohammad Saqib Ansari
 :::
@@ -64,29 +62,25 @@ King Abdullah University of Science and Technology (KAUST), Saudi Arabia
 ::: {style="color:#1E5AA8; font-size:18px;"}
 paula.moraga\@kaust.edu.sa
 :::
-
-:::::
-
-::::::::
+:::::::::::
+::::::::::::::
 
 ::: {style="width:40%; text-align:center;"}
-
 ```{=html}
 <img src="Images/logogeohealth.png"
 style="width:180px; margin-bottom:50px; border:none; box-shadow:none;">
-
 ```
 
 <br>
 
+```{=html}
 <img src="Images/statistics_kaust_logo.jpg"
 style="width:250px; border:none; box-shadow:none;">
-
+```
 :::
-::::::::::
+::::::::::::::::
 
-
-## {background-color="#000000"}
+##  {background-color="#000000"}
 
 ::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Outlier
@@ -224,15 +218,11 @@ An observation that differs strongly from the majority pattern can be flagged as
 Images generated for illustrative purposes.
 :::
 
-
-
-
-## {background-color="#000000"}
+##  {background-color="#000000"}
 
 ::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Definitions
 :::
-
 
 ## 1. Amplitude Outliers
 
@@ -463,15 +453,11 @@ Distance values used to identify outlying curves.
 ::::
 :::::::
 
-
-
-
-## {background-color="#000000"}
+##  {background-color="#000000"}
 
 ::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Methods to Detect Outliers
 :::
-
 
 # Methods Used
 
@@ -819,14 +805,11 @@ $$
 :::::::
 :::::::::::
 
-
-
-## {background-color="#000000"}
+##  {background-color="#000000"}
 
 ::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Simulation Study Results
 :::
-
 
 ## Simulation Data Generation
 
@@ -1086,15 +1069,14 @@ border:none; box-shadow:none;">
 ## Computational Time Heatmap
 
 ```{=html}
-<img src="/Time_heatmap.png"
+<img src="Image/Time_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
 
-## {background-color="#000000"}
+##  {background-color="#000000"}
 
 :::::::::: {style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;"}
-
 ::: {style="position:absolute; top:34%; left:50%; transform:translate(-50%,-50%); font-size:92px; color:#FFFFFF; letter-spacing:2px;"}
 Thank You
 :::
@@ -1122,7 +1104,6 @@ Gracias
 ::: {style="position:absolute; bottom:10%; right:14%; font-size:40px; color:#DDA0DD; transform:rotate(-10deg);"}
 धन्यवाद!
 :::
-
 ::::::::::
 
 ------------------------------------------------------------------------
