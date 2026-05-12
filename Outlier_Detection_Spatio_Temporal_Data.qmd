@@ -1069,7 +1069,7 @@ border:none; box-shadow:none;">
 ## Computational Time Heatmap
 
 ```{=html}
-<img src="Image/Time_heatmap.png"
+<img src="Images/Time_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
