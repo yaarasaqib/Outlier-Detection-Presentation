@@ -99,7 +99,7 @@ An outlier is an observation that differs so much from other observations as to 
 :::
 
 ::: fragment
-![](images/papers.png){width="80%" fig-align="center"}
+![](Images/papers.png){width="80%" fig-align="center"}
 :::
 
 ## Outlier in 1-Dimension
@@ -242,7 +242,7 @@ $$
 y(t) = a\,\mu(t)
 $$
 
-![](images/amplitude_outlier.png){width="100%" fig-align="center"}
+![](Images/amplitude_outlier.png){width="100%" fig-align="center"}
 
 ## 2. Magnitude Outliers
 
@@ -252,7 +252,7 @@ $$
 y(t) = \mu(t) + c
 $$
 
-![](images/magnitude_outlier.png){width="100%" fig-align="center"}
+![](Images/magnitude_outlier.png){width="100%" fig-align="center"}
 
 ## 3. Shape Outliers
 
@@ -262,7 +262,7 @@ $$
 y(t) \not\approx a \cdot \mu(t) + c
 $$
 
-![](images/shape_outlier.png){width="100%" fig-align="center"}
+![](Images/shape_outlier.png){width="100%" fig-align="center"}
 
 ## 4. Trend Outliers
 
@@ -283,7 +283,7 @@ Trend outliers are curves that exhibit unusual temporal patterns compared to the
 ::::: {.column width="50%"}
 :::: fragment
 ```{=html}
-<img src="images/Simulated_TS_Trend.png"
+<img src="Images/Simulated_TS_Trend.png"
 style="width:90%; height:260px; object-fit:contain;
 display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
@@ -298,7 +298,7 @@ Simulated time series illustrating different trends.
 ::::: {.column width="50%"}
 :::: fragment
 ```{=html}
-<img src="images/Linear_Trend_Based_Outlier_illust.png"
+<img src="Images/Linear_Trend_Based_Outlier_illust.png"
 style="width:90%; height:260px; object-fit:contain;
 display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
@@ -370,7 +370,7 @@ Here, $\mu$ and $\Sigma$ denote the mean vector and covariance matrix, respectiv
 ::::::: columns
 :::: {.column width="50%"}
 ::: fragment
-![](images/Depth_Values_Malhanobis_Illustration.png){width="100%"}
+![](Images/Depth_Values_Malhanobis_Illustration.png){width="100%"}
 
 Depth values calculated for different curves. Small depths values are considered outliers
 :::
@@ -378,7 +378,7 @@ Depth values calculated for different curves. Small depths values are considered
 
 :::: {.column width="50%"}
 ::: fragment
-![](images/Depth_Malhanobis_TS_Outliers.png){width="100%"}
+![](Images/Depth_Malhanobis_TS_Outliers.png){width="100%"}
 
 The plots of curves and outliers highligted in black .
 :::
@@ -408,7 +408,7 @@ where (T) is the period of oscillation.
 ::::::: columns
 :::: {.column width="50%"}
 ::: fragment
-![](images/Dominant_Freq_County_Plot.png){width="100%"}
+![](Images/Dominant_Freq_County_Plot.png){width="100%"}
 
 Dominant frequency estimated for each county using spectral analysis.
 :::
@@ -416,7 +416,7 @@ Dominant frequency estimated for each county using spectral analysis.
 
 :::: {.column width="50%"}
 ::: fragment
-![](images/Freq_O_Illust_TS.png){width="100%"}
+![](Images/Freq_O_Illust_TS.png){width="100%"}
 
 Highlighted curves correspond to counties whose oscillation frequencies differ substantially from the majority of curves.
 :::
@@ -448,7 +448,7 @@ may be classified as a distance outlier, where $Q_{1-\alpha}$ denotes the $(1-\a
 ::::::: columns
 :::: {.column width="50%"}
 ::: fragment
-![](images/Distance_Outlier_Curves.png){width="100%"}
+![](Images/Distance_Outlier_Curves.png){width="100%"}
 
 Illustration of distance-based outlier curves.
 :::
@@ -456,7 +456,7 @@ Illustration of distance-based outlier curves.
 
 :::: {.column width="50%"}
 ::: fragment
-![](images/Distance_Outlier_Measure.png){width="100%"}
+![](Images/Distance_Outlier_Measure.png){width="100%"}
 
 Distance values used to identify outlying curves.
 :::
