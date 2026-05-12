@@ -1016,7 +1016,7 @@ Average time required to perform outlier detection for 1 dataset.
 ## Sensitivity Heatmap
 
 ```{=html}
-<img src="images/Sensitivity_heatmap.png"
+<img src="Images/Sensitivity_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1026,7 +1026,7 @@ border:none; box-shadow:none;">
 ## Specificity Heatmap
 
 ```{=html}
-<img src="images/Specificity_heatmap.png"
+<img src="Images/Specificity_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1036,7 +1036,7 @@ border:none; box-shadow:none;">
 ## PPV Heatmap
 
 ```{=html}
-<img src="images/PPV_heatmap.png"
+<img src="Images/PPV_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1046,7 +1046,7 @@ border:none; box-shadow:none;">
 ## Purity Heatmap
 
 ```{=html}
-<img src="images/Purity_heatmap.png"
+<img src="Images/Purity_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1056,7 +1056,7 @@ border:none; box-shadow:none;">
 ## ARI Heatmap
 
 ```{=html}
-<img src="images/ARI_heatmap.png"
+<img src="Images/ARI_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1066,7 +1066,7 @@ border:none; box-shadow:none;">
 ## RI Heatmap
 
 ```{=html}
-<img src="images/RI_heatmap.png"
+<img src="Images/RI_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1076,7 +1076,7 @@ border:none; box-shadow:none;">
 ## Jaccard Heatmap
 
 ```{=html}
-<img src="images/Jaccard_heatmap.png"
+<img src="Images/Jaccard_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
@@ -1086,7 +1086,7 @@ border:none; box-shadow:none;">
 ## Computational Time Heatmap
 
 ```{=html}
-<img src="images/Time_heatmap.png"
+<img src="/Time_heatmap.png"
 style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
