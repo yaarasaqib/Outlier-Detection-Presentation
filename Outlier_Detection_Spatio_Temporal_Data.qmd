@@ -11,6 +11,9 @@ format:
     css: styles.css
     slide-number: true
     title-slide: false
+  pdf:
+    documentclass: beamer
+    slide-level: 2
 
 editor: visual
 ---
