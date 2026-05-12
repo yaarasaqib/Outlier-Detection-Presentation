@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/popper.min.js"></script>
+<script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <title>Outlier Detection in Spatio-Temporal Data</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Outlier Detection in Spatio-Temporal Data</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div style="display:flex; width:100%; height:80vh; align-items:center;">
+<div style="width:60%; text-align:left; padding-left:35px;">
+<div style="font-size:42px; font-weight:700; color:#003A70; margin-bottom:18px;">
+<p>Outlier Detection in Spatio-Temporal Data</p>
+</div>
+<div style="font-size:26px; color:#555; margin-bottom:55px;">
+<p>GeoHealth and Spatial Statistics</p>
+</div>
+<div style="font-size:22px; line-height:1.28;">
+<p><strong>Mohammad Saqib Ansari</strong><br></p>
+<p><span style="font-size:18px;">PhD Student in Statistics<br> King Abdullah University of Science and Technology (KAUST), Saudi Arabia</span></p>
+<div style="color:#1E5AA8; font-size:18px; margin-top:2px; margin-bottom:28px;">
+<p>mohammad.ansari@kaust.edu.sa</p>
+</div>
+<p><strong>Paula Moraga</strong><br></p>
+<p><span style="font-size:18px;">Assistant Professor of Statistics<br> King Abdullah University of Science and Technology (KAUST), Saudi Arabia</span></p>
+<div style="color:#1E5AA8; font-size:18px; margin-top:2px;">
+<p>paula.moraga@kaust.edu.sa</p>
+</div>
+</div>
+</div>
+<div style="width:40%; text-align:center;">
+<img src="Images/logogeohealth.png" style="width:160px; margin-bottom:45px; border:none; box-shadow:none;">
+<p><br></p>
+<img src="Images/statistics_kaust_logo.jpg" style="width:230px; border:none; box-shadow:none;">
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:64px;
+font-weight:700;
+color:white;
+letter-spacing:2px;
+">
+<p>Outlier</p>
+</div>
+</section>
+<section>
+<section id="what-is-outlier" class="title-slide slide level1 center">
+<h1>What is Outlier?</h1>
+<div class="fragment">
+<p>An outlier is an observation that differs so much from other observations as to arouse suspicion that it was generated by a different mechanism <span class="citation" data-cites="WikipediaAnomalyDetection"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/papers.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="outlier-in-1-dimension" class="slide level2">
+<h2>Outlier in 1-Dimension</h2>
+<div class="fragment">
+<p>In one dimension, an observation is considered an outlier if it is unusually large or unusually small compared to the remaining observations.</p>
+</div>
+<div class="fragment">
+<h3 id="methods-to-detect-outliers">Methods to Detect Outliers</h3>
+</div>
+<div class="fragment">
+<ul>
+<li>Z-score Method</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>IQR (Interquartile Range) Method</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Boxplot Method</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Median Absolute Deviation (MAD)</li>
+</ul>
+</div>
+<p><span class="citation" data-cites="AgrestiKateri2021"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span></p>
+</section>
+<section id="outlier-in-2-dimension" class="slide level2">
+<h2>Outlier in 2-Dimension</h2>
+<div class="fragment">
+<p>Outliers in two dimensions can be analyzed using graphical and quantitative approaches.</p>
+</div>
+<div class="fragment">
+<div style="display:flex; gap:60px;">
+<section id="graphical-methods" style="width:50%;">
+<h3>Graphical Methods</h3>
+<ul>
+<li>Moran Scatter Plot<br>
+</li>
+<li>Scatter Plot<br>
+</li>
+<li>Variogram Cloud</li>
+</ul>
+</section>
+<section id="quantitative-methods" style="width:50%;">
+<h3>Quantitative Methods</h3>
+<ul>
+<li>Spatial Statistics<br>
+</li>
+<li>Cook’s Distance<br>
+</li>
+<li>Leverage (Hat Values)<br>
+</li>
+<li>Studentized Residuals<br>
+</li>
+<li>Mahalanobis Distance<br>
+</li>
+<li>DFFITS<br>
+</li>
+<li>DFBETAS</li>
+</ul>
+</section>
+</div>
+</div>
+<p><span class="citation" data-cites="shekhar2003spatial kutner2004applied"><a href="#/references" role="doc-biblioref" onclick="">[3]</a>, <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span></p>
+</section></section>
+<section>
+<section id="defining-outliers" class="title-slide slide level1 center">
+<h1>Defining Outliers</h1>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="fragment">
+<img src="Images/dog.png" style="width:100%; height:190px; object-fit:cover;
+border-radius:10px; border:none; box-shadow:none;">
+<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+<p>Different Object</p>
+</div>
+<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+<p>A dog among cats can be considered an outlier because it differs substantially from the majority group.</p>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<img src="Images/tall.png" style="width:100%; height:190px; object-fit:cover;
+border-radius:10px; border:none; box-shadow:none;">
+<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+<p>Extreme Height</p>
+</div>
+<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+<p>An extremely tall individual compared to the surrounding population may represent an outlier.</p>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<img src="Images/fat.png" style="width:100%; height:190px; object-fit:cover;
+border-radius:10px; border:none; box-shadow:none;">
+<div style="font-size:24px; font-weight:700; margin-top:12px; text-align:center;">
+<p>Distinct Observation</p>
+</div>
+<div style="font-size:16px; line-height:1.25; margin-top:8px; text-align:center;">
+<p>An observation that differs strongly from the majority pattern can be flagged as an outlier.</p>
+</div>
+</div>
+</div></div>
+<div style="font-size:13px; margin-top:18px; text-align:right;">
+<p>Images generated for illustrative purposes.</p>
+</div>
+</section>
+<section id="section-2" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:64px;
+font-weight:700;
+color:white;
+letter-spacing:2px;
+">
+<p>Definitions</p>
+</div>
+</section>
+<section id="amplitude-outliers" class="slide level2">
+<h2>1. Amplitude Outliers</h2>
+<p>An amplitude outlier is a functional observation that follows a similar overall shape as the majority of curves but has unusually large or small magnitude variations.</p>
+<p><span class="math display">\[
+y(t) = a\,\mu(t)
+\]</span></p>
+
+<img data-src="images/amplitude_outlier.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="magnitude-outliers" class="slide level2">
+<h2>2. Magnitude Outliers</h2>
+<p>A magnitude outlier is a functional observation whose values are consistently larger or smaller than the central function while preserving a similar shape.</p>
+<p><span class="math display">\[
+y(t) = \mu(t) + c
+\]</span></p>
+
+<img data-src="images/magnitude_outlier.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="shape-outliers" class="slide level2">
+<h2>3. Shape Outliers</h2>
+<p>A shape outlier is a functional observation whose overall pattern or shape differs from the central tendency of the sample, regardless of its magnitude or amplitude.</p>
+<p><span class="math display">\[
+y(t) \not\approx a \cdot \mu(t) + c
+\]</span></p>
+
+<img data-src="images/shape_outlier.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="trend-outliers" class="slide level2">
+<h2>4. Trend Outliers</h2>
+<p>Trend outliers are curves that exhibit unusual temporal patterns compared to the majority of observations in the dataset.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear trend</td>
+<td><span class="math inline">\(a + bt\)</span></td>
+</tr>
+<tr class="even">
+<td>Polynomial trend</td>
+<td><span class="math inline">\(a + bt + ct^{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Exponential trend</td>
+<td><span class="math inline">\(ae^{bt}\)</span></td>
+</tr>
+<tr class="even">
+<td>Cyclic trend</td>
+<td>Repeated periodic fluctuations over time</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trend-outliers-1" class="slide level2">
+<h2>4. Trend Outliers</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<img src="images/Simulated_TS_Trend.png" style="width:90%; height:260px; object-fit:contain;
+display:block; margin:auto;
+border:none; box-shadow:none; border-radius:8px;">
+<div style="text-align:center; font-size:16px; margin-top:10px;">
+<p>Simulated time series illustrating different trends.</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<img src="images/Linear_Trend_Based_Outlier_illust.png" style="width:90%; height:260px; object-fit:contain;
+display:block; margin:auto;
+border:none; box-shadow:none; border-radius:8px;">
+<div style="text-align:center; font-size:16px; margin-top:10px;">
+<p>Examples of baseline linear trend patterns.</p>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<div class="fragment">
+<div style="font-size:20px; text-align:center;">
+<p>A linear trend is fitted to each curve, and observations with slope values below the 5th percentile or above the 95th percentile are identified as outliers.</p>
+</div>
+</div>
+</section>
+<section id="depth-outliers" class="slide level2">
+<h2>5. Depth Outliers</h2>
+<div class="fragment">
+<p>A data depth concept can be viewed as a generalization of quantiles to multivariate data.<br>
+It measures the centrality (depth) of a given point in <span class="math inline">\(\mathbb{R}^n\)</span>, assuming<br>
+<span class="math inline">\(X_1, \ldots, X_k\)</span> is a random sample from <span class="math inline">\(\mathbb{R}^n\)</span> <span class="citation" data-cites="Dyckerhoff2020ProjectionDepth TuftsDataDepth"><a href="#/references" role="doc-biblioref" onclick="">[5]</a>, <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span></p>
+</div>
+<p><br></p>
+<div class="fragment">
+<h3 id="mahalanobis-depth">Mahalanobis Depth</h3>
+<p><span class="math display">\[
+D_M(x)=\frac{1}{1+(x-\mu)^\top \Sigma^{-1}(x-\mu)}
+\]</span> <span class="citation" data-cites="Dyckerhoff2020ProjectionDepth"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span></p>
+<div style="font-size:18px; margin-top:10px;">
+<p>Here, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span> denote the mean vector and covariance matrix, respectively. Larger depth values indicate more central observations.</p>
+</div>
+</div>
+</section>
+<section id="mahalanobis-depth-1" class="slide level2">
+<h2>5.1 Mahalanobis Depth</h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/Malhanobis_Depth.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="tukey-depth-tukey1975picturing" class="slide level2">
+<h2>5.2 Tukey Depth <span class="citation" data-cites="tukey1975picturing"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span></h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/Tukey_Depth.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="spatial-depth-nagy2017monotonicityspatialdepth" class="slide level2">
+<h2>5.3 Spatial Depth <span class="citation" data-cites="Nagy2017MonotonicitySpatialDepth"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span></h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/Spatial_Depth.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="illustration-of-outlier-dtection-using-malhanobis-depth" class="slide level2">
+<h2>5.1 Illustration of Outlier Dtection using Malhanobis Depth</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Depth_Values_Malhanobis_Illustration.png" style="width:100.0%"></p>
+<p>Depth values calculated for different curves. Small depths values are considered outliers</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Depth_Malhanobis_TS_Outliers.png" style="width:100.0%"></p>
+<p>The plots of curves and outliers highligted in black .</p>
+</div>
+</div></div>
+</section>
+<section id="frequency-outlier" class="slide level2">
+<h2>6. Frequency Outlier</h2>
+<p>Frequency outliers are curves whose oscillation frequency differs significantly from that of the majority of curves in the dataset.</p>
+<div class="fragment">
+<p><span class="math display">\[
+y(t)=\sin(2\pi f t)
+\]</span></p>
+<p>where (f) denotes the oscillation frequency.</p>
+<p><span class="math display">\[
+f=\frac{1}{T}
+\]</span></p>
+<p>where (T) is the period of oscillation.</p>
+</div>
+</section>
+<section id="illustration-of-frequency-outliers" class="slide level2">
+<h2>6. Illustration of Frequency Outliers</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Dominant_Freq_County_Plot.png" style="width:100.0%"></p>
+<p>Dominant frequency estimated for each county using spectral analysis.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Freq_O_Illust_TS.png" style="width:100.0%"></p>
+<p>Highlighted curves correspond to counties whose oscillation frequencies differ substantially from the majority of curves.</p>
+</div>
+</div></div>
+</section>
+<section id="distance-outlier" class="slide level2">
+<h2>7. Distance Outlier</h2>
+<p>Distance outliers are functional observations whose distance from a central reference curve, such as the mean or median curve, is unusually large or unusually small compared to the majority of curves in the dataset.</p>
+<div class="fragment">
+<p><span class="math display">\[
+d_i = d\!\left(y_i(t),\, \mu(t)\right)
+\]</span></p>
+<p>where <span class="math inline">\(mu(t)\)</span> denotes the central curve and <span class="math inline">\(d_i\)</span>is the distance measure.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+d_i &gt; Q_{1-\alpha}
+\]</span></p>
+<p>may be classified as a distance outlier, where <span class="math inline">\(Q_{1-\alpha}\)</span> denotes the <span class="math inline">\((1-\alpha)\)</span>-quantile of the distance distribution.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Distance_Outlier_Curves.png" style="width:100.0%"></p>
+<p>Illustration of distance-based outlier curves.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="images/Distance_Outlier_Measure.png" style="width:100.0%"></p>
+<p>Distance values used to identify outlying curves.</p>
+</div>
+</div></div>
+</section>
+<section id="section-3" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:64px;
+font-weight:700;
+color:white;
+letter-spacing:2px;
+">
+<p>Methods to Detect Outliers</p>
+</div>
+</section></section>
+<section>
+<section id="methods-used" class="title-slide slide level1 center">
+<h1>Methods Used</h1>
+<ol type="1">
+<li class="fragment"><p><strong>SVTT Method using SaTScan</strong></p></li>
+<li class="fragment"><p><strong>Functional Box-Plot</strong></p></li>
+<li class="fragment"><p><strong>Trend-Based Outliers</strong></p>
+<ul>
+<li class="fragment">Linear Trend Outliers</li>
+</ul></li>
+<li class="fragment"><p><strong>Distance-Based Method</strong></p></li>
+<li class="fragment"><p><strong>Depth-Based Method</strong></p></li>
+<li class="fragment"><p><strong>Functional Depth</strong></p></li>
+<li class="fragment"><p><strong>MUOD</strong><br>
+<em>(Massive Unsupervised Outlier Detection)</em></p></li>
+</ol>
+</section>
+<section id="spatial-variation-in-temporal-trends-svtt" class="slide level2">
+<h2>1. Spatial Variation in Temporal Trends (SVTT)</h2>
+<ul>
+<li class="fragment"><p>Detects regions with unusual temporal trends.</p></li>
+<li class="fragment"><p>Compares trends inside and outside a spatial window.</p></li>
+<li class="fragment"><p>Implemented in <strong>SaTScan</strong> using the <strong>Discrete Poisson Model</strong>.</p></li>
+<li class="fragment"><p>Types:</p>
+<ul>
+<li class="fragment">Linear SVTT</li>
+<li class="fragment">Quadratic SVTT</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+H_0:\text{Trend}_{in}=\text{Trend}_{out}
+\]</span></p>
+<p><span class="math display">\[
+H_1:\text{Trend}_{in}\neq \text{Trend}_{out}
+\]</span></p>
+<p><span class="citation" data-cites="MoragaKulldorff2016 kulldorff2022satscan"><a href="#/references" role="doc-biblioref" onclick="">[9]</a>, <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span></p>
+</section>
+<section id="functional-box-plot" class="slide level2">
+<h2>2. Functional Box-Plot</h2>
+<ul>
+<li class="fragment"><p>Extension of the classical boxplot for functional data.</p></li>
+<li class="fragment"><p>Summarizes an entire collection of curves using functional depth.</p></li>
+<li class="fragment"><p>Displays:</p>
+<ul>
+<li class="fragment">Median curve</li>
+<li class="fragment">Central region</li>
+<li class="fragment">Envelope</li>
+<li class="fragment">Functional outliers</li>
+</ul></li>
+<li class="fragment"><p>Provides an overall visualization of variability and outlying behavior in functional data.</p></li>
+</ul>
+<p><span class="citation" data-cites="Sun2011FunctionalBoxplots"><a href="#/references" role="doc-biblioref" onclick="">[11]</a></span></p>
+</section>
+<section id="functional-boxplot-illustration" class="slide level2">
+<h2>2. Functional Boxplot Illustration</h2>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Images/functional_boxplot.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="trend-based-outliers" class="slide level2">
+<h2>2. Trend-Based Outliers</h2>
+<div style="font-size:0.58em; line-height:1.08;">
+<div class="fragment">
+<p>Let</p>
+<p><span class="math display">\[
+y_1(t), y_2(t), \ldots, y_k(t)
+\]</span></p>
+<p>denote the temporal functions of <span class="math inline">\(k\)</span> regions observed at time points</p>
+<p><span class="math display">\[
+t_1, t_2, \ldots, t_n.
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="algorithm">Algorithm</h3>
+</div>
+<div class="fragment">
+<p><strong>Step 1:</strong><br>
+Fit a suitable trend model separately for each region using a small number of parameters, such as Linear, Quadratic, and Exponential trends.</p>
+</div>
+<div class="fragment">
+<p>For example, a linear trend model may be written as</p>
+<p><span class="math display">\[
+y_i(t)=\beta_{0i}+\beta_{1i}t+\varepsilon_i(t),
+\]</span></p>
+<p>where <span class="math inline">\(\beta_{0i}\)</span> and <span class="math inline">\(\beta_{1i}\)</span> represent the trend parameters for region <span class="math inline">\(i\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>Step 2:</strong><br>
+Treat the estimated parameter vectors</p>
+<p><span class="math display">\[
+(\hat{\beta}_{0i}, \hat{\beta}_{1i})
+\]</span></p>
+<p>as observations in lower-dimensional space and apply standard outlier detection techniques.</p>
+</div>
+<div class="fragment">
+<p><strong>Step 3:</strong><br>
+Regions whose parameter vectors are detected as unusual are identified as trend-based outliers.</p>
+</div>
+</div>
+</section>
+<section id="distance-based-outliers" class="slide level2">
+<h2>3. Distance-Based Outliers</h2>
+<div style="font-size:0.58em; line-height:1.08;">
+<div class="fragment">
+<p>Let</p>
+<p><span class="math display">\[
+y_1(t), y_2(t), \ldots, y_k(t)
+\]</span></p>
+<p>denote the temporal functions of <span class="math inline">\(k\)</span> regions observed at time points</p>
+<p><span class="math display">\[
+t_1, t_2, \ldots, t_n.
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="algorithm-1">Algorithm</h3>
+</div>
+<div class="fragment">
+<p><strong>Step 1:</strong><br>
+Compute the distance between each curve and a central curve, such as the mean or median curve.</p>
+</div>
+<div class="fragment">
+<p>For example, the Euclidean distance between curve <span class="math inline">\(y_i(t)\)</span> and the central curve <span class="math inline">\(c(t)\)</span> is</p>
+<p><span class="math display">\[
+d_i=
+\sqrt{
+\sum_{j=1}^{n}
+\left(
+y_i(t_j)-c(t_j)
+\right)^2
+}.
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Step 2:</strong><br>
+Use the obtained distances as one-dimensional observations and apply standard outlier detection methods.</p>
+</div>
+<div class="fragment">
+<p><strong>Step 3:</strong><br>
+Curves having unusually large distances from the central curve are identified as distance-based outliers.</p>
+</div>
+</div>
+</section>
+<section id="commonly-used-distance-measures" class="slide level2">
+<h2>3. Commonly Used Distance Measures</h2>
+<div style="font-size:0.58em; line-height:1.08;">
+<div class="fragment">
+<h3 id="euclidean-distance">Euclidean Distance</h3>
+<p><span class="math display">\[
+d(x,y)=
+\sqrt{
+\sum_{i=1}^{n}(x_i-y_i)^2
+}
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="manhattan-distance">Manhattan Distance</h3>
+<p><span class="math display">\[
+d(x,y)=
+\sum_{i=1}^{n}|x_i-y_i|
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="mahalanobis-distance">Mahalanobis Distance</h3>
+<p><span class="math display">\[
+d(x,y)=
+\sqrt{
+(x-y)^\top \Sigma^{-1}(x-y)
+}
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="cosine-distance">Cosine Distance</h3>
+<p><span class="math display">\[
+d(x,y)=
+1-
+\frac{x^\top y}
+{\|x\|\|y\|}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="depth-based-outliers" class="slide level2">
+<h2>4. Depth-Based Outliers</h2>
+<div style="font-size:0.58em; line-height:1.08;">
+<div class="fragment">
+<p>Let</p>
+<p><span class="math display">\[
+y_1(t), y_2(t), \ldots, y_k(t)
+\]</span></p>
+<p>denote the temporal functions of <span class="math inline">\(k\)</span> regions observed at time points</p>
+<p><span class="math display">\[
+t_1, t_2, \ldots, t_n.
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="algorithm-2">Algorithm</h3>
+</div>
+<div class="fragment">
+<p><strong>Step 1:</strong><br>
+Compute a depth value for each curve, which measures the centrality of the curve relative to the remaining curves.</p>
+</div>
+<div class="fragment">
+<p>A general depth function may be written as</p>
+<p><span class="math display">\[
+D(y_i \mid Y),
+\]</span></p>
+<p>where <span class="math inline">\(Y=\{y_1,y_2,\ldots,y_k\}\)</span> denotes the collection of all curves.</p>
+</div>
+<div class="fragment">
+<p><strong>Step 2:</strong><br>
+Use the obtained depth values as one-dimensional observations and apply standard outlier detection methods.</p>
+</div>
+<div class="fragment">
+<p><strong>Step 3:</strong><br>
+Curves with unusually small depth values are identified as depth-based outliers.</p>
+</div>
+</div>
+</section>
+<section id="commonly-used-depth-measures" class="slide level2">
+<h2>Commonly Used Depth Measures</h2>
+<div style="font-size:0.58em; line-height:1.08;">
+<div class="fragment">
+<h3 id="mahalanobis-depth-2">Mahalanobis Depth</h3>
+<p><span class="math display">\[
+D_M(x)=
+\frac{
+1
+}{
+1+(x-\mu)^\top\Sigma^{-1}(x-\mu)
+}
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="spatial-depth">Spatial Depth</h3>
+<p><span class="math display">\[
+D_S(x)=
+1-
+\left\|
+\frac{1}{n}
+\sum_{i=1}^{n}
+\frac{x-X_i}{\|x-X_i\|}
+\right\|
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="tukey-depth">Tukey Depth</h3>
+<p><span class="math display">\[
+D_T(x)=
+\inf_{u\in S^{d-1}}
+P(u^\top X \le u^\top x)
+\]</span></p>
+</div>
+<div class="fragment">
+<h3 id="modified-band-depth-mbd">Modified Band Depth (MBD)</h3>
+<p><span class="math display">\[
+\text{MBD}(x)=
+\binom{n}{2}^{-1}
+\sum_{i&lt;j}
+\frac{
+\lambda(A(x;x_i,x_j))
+}{
+\lambda(T)
+}
+\]</span></p>
+<div style="font-size:0.50em; line-height:1.0;">
+<div style="display:flex; gap:40px;">
+<div style="width:50%;">
+<ul>
+<li><p><span class="math inline">\(A(x;x_i,x_j)\)</span> : set where <span class="math inline">\(x(t)\)</span> lies inside the band formed by <span class="math inline">\(x_i(t)\)</span> and <span class="math inline">\(x_j(t)\)</span></p></li>
+<li><p><span class="math inline">\(\lambda(\cdot)\)</span> : Lebesgue measure</p></li>
+<li><p><span class="math inline">\(T\)</span> : observation time domain</p></li>
+</ul>
+</div>
+<div style="width:50%;">
+<ul>
+<li><p><span class="math inline">\(X\)</span> : random vector</p></li>
+<li><p><span class="math inline">\(u\)</span> : projection direction</p></li>
+<li><p><span class="math inline">\(S^{d-1}\)</span> : unit sphere in <span class="math inline">\(\mathbb{R}^d\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:64px;
+font-weight:700;
+color:white;
+letter-spacing:2px;
+">
+<p>Simulation Study Results</p>
+</div>
+</section>
+<section id="simulation-data-generation" class="slide level2">
+<h2>Simulation Data Generation</h2>
+<div style="font-size:0.62em; line-height:1.12;">
+<div class="fragment">
+<p>Synthetic datasets were generated under different temporal trend scenarios:</p>
+<div style="display:flex; gap:60px;">
+<div style="width:50%;">
+<ul>
+<li>Parabolic<br>
+</li>
+<li>Linear<br>
+</li>
+<li>Cyclic</li>
+</ul>
+</div>
+<div style="width:50%;">
+<ul>
+<li>Increasing<br>
+</li>
+<li>Decreasing</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>For each spatial unit <span class="math inline">\(i=1,\ldots,n\)</span> and time point <span class="math inline">\(t=1,\ldots,T\)</span>,</p>
+<p><span class="math display">\[
+Y_{it}\sim \text{Poisson}(\lambda_{it}),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\lambda_{it}=E_{it}\theta_{it}.
+\]</span></p>
+</div>
+<div class="fragment">
+<p>The expected number of cases was assumed constant across space and time:</p>
+<p><span class="math display">\[
+E_{it}=100.
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Different temporal risk functions <span class="math inline">\(\theta_{it}\)</span> were used to generate various trend patterns.</p>
+</div>
+</div>
+</section>
+<section id="simulated-temporal-trends" class="slide level2">
+<h2>Simulated Temporal Trends</h2>
+<div style="font-size:0.55em;">
+<div class="fragment">
+<div style="display:flex; justify-content:space-between; gap:15px;">
+<div style="width:32%; text-align:center;">
+<p><img data-src="Images/Parabolas.png" style="width:100.0%"></p>
+<p>Parabolic Trends</p>
+</div>
+<div style="width:32%; text-align:center;">
+<p><img data-src="Images/Linear.png" style="width:100.0%"></p>
+<p>Linear Trends</p>
+</div>
+<div style="width:32%; text-align:center;">
+<p><img data-src="Images/cyclic.png" style="width:100.0%"></p>
+<p>Cyclic Trends</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div style="display:flex; justify-content:center; gap:35px;">
+<div style="width:32%; text-align:center;">
+<p><img data-src="Images/increases.png" style="width:100.0%"></p>
+<p>Increasing Trends</p>
+</div>
+<div style="width:32%; text-align:center;">
+<p><img data-src="Images/decreasings.png" style="width:100.0%"></p>
+<p>Decreasing Trends</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="metrics-used-for-analysis" class="slide level2">
+<h2>Metrics Used for Analysis</h2>
+<div style="font-size:0.50em; line-height:1.08;">
+<div style="display:flex; gap:40px;">
+<div style="width:50%;">
+<div class="fragment">
+<h3 id="sensitivity">Sensitivity</h3>
+<p><span class="math display">\[
+\text{Sensitivity}=
+\frac{TP}{TP+FN}
+\]</span></p>
+<p>Proportion of true outliers correctly identified.</p>
+</div>
+<div class="fragment">
+<h3 id="specificity">Specificity</h3>
+<p><span class="math display">\[
+\text{Specificity}=
+\frac{TN}{TN+FP}
+\]</span></p>
+<p>Proportion of normal observations correctly identified.</p>
+</div>
+<div class="fragment">
+<h3 id="positive-predictive-value-ppv">Positive Predictive Value (PPV)</h3>
+<p><span class="math display">\[
+\text{PPV}=
+\frac{TP}{TP+FP}
+\]</span></p>
+<p>Proportion of detected outliers that are truly outliers.</p>
+</div>
+<div class="fragment">
+<h3 id="purity">Purity</h3>
+<p><span class="math display">\[
+\text{Purity}=
+\frac{1}{N}\sum_k \max_j |c_k \cap t_j|
+\]</span></p>
+<p>Measures homogeneity within detected groups.</p>
+</div>
+</div>
+<div style="width:50%;">
+<div class="fragment">
+<h3 id="rand-index-ri">Rand Index (RI)</h3>
+<p><span class="math display">\[
+RI=
+\frac{TP+TN}{TP+TN+FP+FN}
+\]</span></p>
+<p>Measures similarity between true and detected classifications.</p>
+</div>
+<div class="fragment">
+<h3 id="adjusted-rand-index-ari">Adjusted Rand Index (ARI)</h3>
+<p><span class="math display">\[
+ARI=
+\frac{RI-\mathbb{E}(RI)}
+{\max(RI)-\mathbb{E}(RI)}
+\]</span></p>
+<p>Chance-adjusted version of RI.</p>
+</div>
+<div class="fragment">
+<h3 id="jaccard-index">Jaccard Index</h3>
+<p><span class="math display">\[
+J=
+\frac{TP}{TP+FP+FN}
+\]</span></p>
+<p>Measures overlap between detected and true outlier sets.</p>
+</div>
+<div class="fragment">
+<h3 id="computation-time">Computation Time</h3>
+<p>Average time required to perform outlier detection for 1 dataset.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-heatmap" class="slide level2">
+<h2>Sensitivity Heatmap</h2>
+<img src="images/Sensitivity_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="specificity-heatmap" class="slide level2">
+<h2>Specificity Heatmap</h2>
+<img src="images/Specificity_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="ppv-heatmap" class="slide level2">
+<h2>PPV Heatmap</h2>
+<img src="images/PPV_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="purity-heatmap" class="slide level2">
+<h2>Purity Heatmap</h2>
+<img src="images/Purity_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="ari-heatmap" class="slide level2">
+<h2>ARI Heatmap</h2>
+<img src="images/ARI_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="ri-heatmap" class="slide level2">
+<h2>RI Heatmap</h2>
+<img src="images/RI_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="jaccard-heatmap" class="slide level2">
+<h2>Jaccard Heatmap</h2>
+<img src="images/Jaccard_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="computational-time-heatmap" class="slide level2">
+<h2>Computational Time Heatmap</h2>
+<img src="images/Time_heatmap.png" style="width:88%; display:block; margin:auto;
+border:none; box-shadow:none;">
+</section>
+<section id="section-5" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;">
+<div style="
+position:absolute;
+top:34%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:92px;
+color:#FFFFFF;
+letter-spacing:2px;">
+<p>Thank You</p>
+</div>
+<div style="
+position:absolute;
+top:12%;
+left:8%;
+font-size:68px;
+color:#FFD700;
+transform:rotate(14deg);">
+<p>धन्यवाद</p>
+</div>
+<div style="
+position:absolute;
+top:14%;
+right:8%;
+font-size:58px;
+color:#87CEFA;
+transform:rotate(-12deg);">
+<p>شکریہ</p>
+</div>
+<div style="
+position:absolute;
+top:58%;
+left:10%;
+font-size:56px;
+color:#90EE90;
+transform:rotate(10deg);">
+<p>ধন্যবাদ</p>
+</div>
+<div style="
+position:absolute;
+top:56%;
+right:10%;
+font-size:50px;
+color:#FFB6C1;
+transform:rotate(-16deg);">
+<p>شكراً</p>
+</div>
+<div style="
+position:absolute;
+bottom:12%;
+left:34%;
+font-size:46px;
+color:#FFA07A;
+transform:rotate(15deg);">
+<p>Gracias</p>
+</div>
+<div style="
+position:absolute;
+bottom:10%;
+right:14%;
+font-size:40px;
+color:#DDA0DD;
+transform:rotate(-10deg);">
+<p>धन्यवाद!</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-WikipediaAnomalyDetection" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Wikipedia contributors, <span>“Anomaly detection.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Anomaly_detection">https://en.wikipedia.org/wiki/Anomaly_detection</a></div>
+</div>
+<div id="ref-AgrestiKateri2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. Agresti and M. Kateri, <em>Foundations of statistics for data scientists: With r and python</em>, 1st ed. Boca Raton, FL: Chapman; Hall/CRC, 2021. doi: <a href="https://doi.org/10.1201/9781003159834">10.1201/9781003159834</a>.</div>
+</div>
+<div id="ref-shekhar2003spatial" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">S. Shekhar, C.-T. Lu, and P. Zhang, <span>“A unified approach to detecting spatial outliers,”</span> <em>GeoInformatica</em>, vol. 7, no. 2, pp. 139–166, 2003, doi: <a href="https://doi.org/10.1023/A:1023455925009">10.1023/A:1023455925009</a>.</div>
+</div>
+<div id="ref-kutner2004applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">M. H. Kutner, C. J. Nachtsheim, J. Neter, and W. Li, <em>Applied linear regression models</em>, 4th ed. McGraw-Hill/Irwin, 2004.</div>
+</div>
+<div id="ref-Dyckerhoff2020ProjectionDepth" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">R. Dyckerhoff, P. Mozharovskyi, and S. Nagy, <span>“Approximate computation of projection depths,”</span> <em>arXiv preprint arXiv:2007.08016</em>, 2020, Available: <a href="https://arxiv.org/abs/2007.08016">https://arxiv.org/abs/2007.08016</a></div>
+</div>
+<div id="ref-TuftsDataDepth" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">Computational Geometry Group, Tufts University, <span>“Statistical data depth at tufts.”</span> <a href="https://www.cs.tufts.edu/research/geometry/depth/" class="uri">https://www.cs.tufts.edu/research/geometry/depth/</a>, n.d.</div>
+</div>
+<div id="ref-tukey1975picturing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J. W. Tukey, <span>“Mathematics and the picturing of data,”</span> in <em>Proceedings of the international congress of mathematicians (vancouver, b. C., 1974)</em>, vol. 2, Montreal, Quebec: Canadian Mathematical Congress, 1975, pp. 523–531.</div>
+</div>
+<div id="ref-Nagy2017MonotonicitySpatialDepth" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">S. Nagy, <span>“Monotonicity properties of spatial depth,”</span> <em>Statistics &amp; Probability Letters</em>, vol. 129, pp. 373–378, 2017, doi: <a href="https://doi.org/10.1016/j.spl.2017.06.025">10.1016/j.spl.2017.06.025</a>.</div>
+</div>
+<div id="ref-MoragaKulldorff2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">P. Moraga and M. Kulldorff, <span>“Detection of spatial variations in temporal trends with a quadratic function,”</span> <em>Statistical Methods in Medical Research</em>, vol. 25, no. 4, pp. 1422–1437, 2016, doi: <a href="https://doi.org/10.1177/0962280213485312">10.1177/0962280213485312</a>.</div>
+</div>
+<div id="ref-kulldorff2022satscan" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">M. Kulldorff, <em>SaTScan user guide for version 10.1</em>. SaTScan, 2022. Available: <a href="https://www.satscan.org/">https://www.satscan.org/</a></div>
+</div>
+<div id="ref-Sun2011FunctionalBoxplots" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">Y. Sun and M. G. Genton, <span>“Functional boxplots,”</span> <em>Journal of Computational and Graphical Statistics</em>, vol. 20, no. 2, pp. 316–334, 2011, doi: <a href="https://doi.org/10.1198/jcgs.2011.09224">10.1198/jcgs.2011.09224</a>.</div>
+</div>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Outlier_Detection_Spatio_Temporal_Data_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
