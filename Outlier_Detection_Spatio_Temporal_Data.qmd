@@ -1519,6 +1519,212 @@ Median Overall Time-Series
 ::::
 
 
+## 5. Combined Depth Outliers
+
+<br><br>
+
+:::: {.columns}
+
+::: {.column width="65%"}
+
+![](Images/comb_depth_o_map.png){width=100%}
+
+<div style="font-size:0.45em; text-align:center; margin-top:10px;">
+Combined Outlier Map
+</div>
+
+:::
+
+::: {.column width="35%"}
+
+![](Images/venn_dig_depth.png){width=88%}
+
+<div style="font-size:0.45em; text-align:center; margin-top:10px;">
+Venn Diagram Comparison
+</div>
+
+:::
+
+::::
+
+
+
+
+
+
+
+
+
+## 5.  Depth Histograms
+
+<br><br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](Images/hist_malhanobis.png){width=118%}
+
+<div style="font-size:0.36em; text-align:center;">
+Mahalanobis Depth
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/hist_tukey.png){width=118%}
+
+<div style="font-size:0.36em; text-align:center;">
+Tukey Depth
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/hist_projection.png){width=118%}
+
+<div style="font-size:0.36em; text-align:center;">
+Projection Depth
+</div>
+:::
+
+::::
+
+
+## 5. Depth Maps
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](Images/malhanobis_depth_map.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Mahalanobis Depth Map
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/tukey_depth_map.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Tukey Depth Map
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/projection_depth_map.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Projection Depth Map
+</div>
+:::
+
+::::
+
+---
+
+## 5. Outlier Time-Series
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](Images/sir_malhanobis_O_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Mahalanobis Outlier TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_tukey_O_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Tukey Outlier TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_projection_O_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Projection Outlier TS
+</div>
+:::
+
+::::
+
+---
+
+## 5. Non-Outlier Time-Series
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](Images/sir_malhanobis_NO_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Mahalanobis Non-Outlier TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_tukey_NO_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Tukey Non-Outlier TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_projection_NO_ts.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Projection Non-Outlier TS
+</div>
+:::
+
+::::
+
+---
+
+## 5. Combined Time-Series
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](Images/sir_malhanobis_comb.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Mahalanobis Combined TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_tukey_comb.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Tukey Combined TS
+</div>
+:::
+
+::: {.column width="33%"}
+![](Images/sir_projection_comb.png){width=128%}
+
+<div style="font-size:0.40em; text-align:center;">
+Projection Combined TS
+</div>
+:::
+
+::::
+
+
+
+
 
 
 
