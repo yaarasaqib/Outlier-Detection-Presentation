@@ -844,30 +844,12 @@ P(u^\top X \le u^\top x)
 </section>
 <section id="simulation-data-generation" class="slide level2">
 <h2>Simulation Data Generation</h2>
-<div style="font-size:0.62em; line-height:1.12;">
+<div style="font-size:0.62em; line-height:1.15;">
 <div class="fragment">
-<p>Synthetic datasets were generated under different temporal trend scenarios:</p>
-<div style="display:flex; gap:60px;">
-<div style="width:50%;">
-<ul>
-<li>Parabolic<br>
-</li>
-<li>Linear<br>
-</li>
-<li>Cyclic</li>
-</ul>
-</div>
-<div style="width:50%;">
-<ul>
-<li>Increasing<br>
-</li>
-<li>Decreasing</li>
-</ul>
-</div>
-</div>
+<p>Synthetic datasets were generated under different temporal trend scenarios to evaluate the performance of the proposed outlier detection methods.</p>
 </div>
 <div class="fragment">
-<p>For each spatial unit <span class="math inline">\(i=1,\ldots,n\)</span> and time point <span class="math inline">\(t=1,\ldots,T\)</span>,</p>
+<p>For each spatial unit (i=1,,n) and time point (t=1,,T),</p>
 <p><span class="math display">\[
 Y_{it}\sim \text{Poisson}(\lambda_{it}),
 \]</span></p>
@@ -883,8 +865,55 @@ E_{it}=100.
 \]</span></p>
 </div>
 <div class="fragment">
-<p>Different temporal risk functions <span class="math inline">\(\theta_{it}\)</span> were used to generate various trend patterns.</p>
+<p>Both single-cluster and multiple-cluster settings were considered to assess the robustness of each method under varying spatial configurations.</p>
 </div>
+<div class="fragment">
+<p>The standardized incidence ratio (SIR) for each county and time point was computed as:</p>
+<p><span class="math display">\[
+SIR_{it}=\frac{Y_{it}}{E_{it}}.
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="hypothetical-study-region" class="slide level2">
+<h2>Hypothetical Study Region</h2>
+<div style="display:flex; justify-content:center; align-items:center; height:78vh;">
+<img src="Images/Sim_Region.png" style="width:78%; border:none; box-shadow:none;">
+</div>
+
+</section>
+<section id="hypothetical-study-region-1" class="slide level2">
+<h2>Hypothetical Study Region</h2>
+<div style="font-size:0.6em; line-height:1.4;">
+<ul>
+<li><p>A hypothetical spatial region consisting of <strong>40 counties</strong> was generated using Voronoi tessellation.</p></li>
+<li><p>Spatial locations were sam$ to <span class="math inline">\(31^\circ\)</span></p></li>
+<li><p>The study period spans from:</p></li>
+</ul>
+<p><span class="math display">\[
+1980 \text{ to } 2000
+\]</span></p>
+<p>corresponding to:</p>
+<p><span class="math display">\[
+21 \text{ yearly time points}
+\]</span></p>
+<ul>
+<li>For simplicity, the population was assumed constant across all counties and years:</li>
+</ul>
+<p><span class="math display">\[
+Population = 10{,}000
+\]</span></p>
+<ul>
+<li>Let</li>
+</ul>
+<p><span class="math display">\[
+i = 1,2,\ldots,40
+\]</span></p>
+<p>denote counties, and</p>
+<p><span class="math display">\[
+t = 1,2,\ldots,21
+\]</span></p>
+<p>denote the yearly time index.</p>
 </div>
 </section>
 <section id="simulated-temporal-trends" class="slide level2">
@@ -1034,6 +1063,231 @@ border:none; box-shadow:none;">
 border:none; box-shadow:none;">
 </section>
 <section id="section-5" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;">
+<p>Application On Real Dataset</p>
+</div>
+</section>
+<section id="dengue-dataset" class="slide level2">
+<h2>Dengue Dataset</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div style="font-size:0.70em; line-height:1.25;">
+<p><strong>Data Source</strong></p>
+<ul>
+<li><p>Dengue incidence data were obtained from the publicly archived <strong>Info Dengue</strong> database.</p></li>
+<li><p>The dataset provides weekly dengue case counts for all municipalities in São Paulo, Brazil.</p></li>
+<li><p>Data source:<br>
+https://info.dengue.mat.br/api</p></li>
+<li><p>Study period:<br>
+<strong>1 April 2021 – 1 April 2024</strong></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:55%;">
+<p><img data-src="Images/ts_dengue.png" style="width:100.0%"></p>
+<div style="font-size:0.42em; text-align:center;">
+<p>SIR during Apr-2021 to Apr-2024</p>
+</div>
+</div></div>
+</section>
+<section id="svtt-linear-analysis-time-series" class="slide level2">
+<h2>1.1 SVTT Linear Analysis: Time Series</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><img data-src="Images/SVTT_Linear_Cluster1_TS.png" style="width:86.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Cluster 1 TS</p>
+</div>
+</div><div class="column" style="width:48%;">
+<p><img data-src="Images/SVTT_Linear_Cluster2_TS.png" style="width:86.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Cluster 2 TS</p>
+</div>
+</div></div>
+<div class="columns">
+<div class="column" style="width:27%;">
+
+</div><div class="column" style="width:46%;">
+<p><img data-src="Images/SVTT_Linear_Non_Cluster_TS.png" style="width:76.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Non-Cluster TS</p>
+</div>
+</div><div class="column" style="width:27%;">
+
+</div></div>
+</section>
+<section id="svtt-linear-analysis-spatial-pattern-and-trend" class="slide level2">
+<h2>1.1 SVTT Linear Analysis: Spatial Pattern and Trend</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="Images/SVTT_Linear_Map.png" style="width:100.0%"></p>
+<p>Spatial Clusters Map</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/SVTT_Linear_fitted_Trend.png" style="width:100.0%"></p>
+<p>Fitted Linear Trend</p>
+</div></div>
+</section>
+<section id="svtt-quadratic-analysis-time-series" class="slide level2">
+<h2>1.2 SVTT Quadratic Analysis: Time Series</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><img data-src="Images/SVTT_Quad_Cluster_1.png" style="width:86.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Cluster 1 TS</p>
+</div>
+</div><div class="column" style="width:48%;">
+<p><img data-src="Images/SVTT_Quad_Cluster_2_TS.png" style="width:86.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Cluster 2 TS</p>
+</div>
+</div></div>
+<div class="columns">
+<div class="column" style="width:27%;">
+
+</div><div class="column" style="width:46%;">
+<p><img data-src="Images/SVTT_Quad_Non_Cluster.png" style="width:76.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Non-Cluster TS</p>
+</div>
+</div><div class="column" style="width:27%;">
+
+</div></div>
+</section>
+<section id="svtt-quadratic-analysis-spatial-pattern-and-trend" class="slide level2">
+<h2>1.2 SVTT Quadratic Analysis: Spatial Pattern and Trend</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<p><img data-src="Images/SVTT_Quad_Map.png" style="width:92.0%"></p>
+<p>Spatial Clusters Map</p>
+</div><div class="column" style="width:49%;">
+<p><img data-src="Images/SVTT_Quad_Fitted_Trend.png" style="width:92.0%"></p>
+<p>Fitted Quadratic Trend</p>
+</div></div>
+</section>
+<section id="functional-boxplot-summary" class="slide level2">
+<h2>2. Functional Boxplot Summary</h2>
+<img src="Images/Func_BP_Sao_Paulo.png" style="width:82%; display:block; margin:auto;
+border:none; box-shadow:none; border-radius:8px;">
+<div style="font-size:0.55em; text-align:center; margin-top:8px;">
+<p>Min, Max, Median, Q1, and Q3 curves.</p>
+</div>
+</section>
+<section id="functional-boxplot-summary-1" class="slide level2">
+<h2>2. Functional Boxplot Summary</h2>
+<img src="Images/FBP_Reduce_Y.png" style="width:82%; display:block; margin:auto;
+border:none; box-shadow:none; border-radius:8px;">
+<div style="font-size:0.55em; text-align:center; margin-top:8px;">
+<p>Min, Q1, Median, and Q3 curves with reduced y-axis.</p>
+</div>
+</section>
+<section id="linear-trend-outliers-spatial-map" class="slide level2">
+<h2>3.1Linear Trend Outliers: Spatial Map</h2>
+
+<img data-src="Images/map_Linear_Trend_OL.png" style="width:82.0%" class="r-stretch"><div style="font-size:0.45em; text-align:center;">
+<p>Map of Linear Trend Outliers</p>
+</div>
+</section>
+<section id="positive-linear-trend-outliers" class="slide level2">
+<h2>3.1 Positive Linear Trend Outliers</h2>
+
+<img data-src="Images/Positive_linear_Trend_OL.png" style="width:82.0%" class="r-stretch"><div style="font-size:0.45em; text-align:center;">
+<p>Positive Linear Trend Outliers</p>
+</div>
+</section>
+<section id="negative-linear-trend-outliers" class="slide level2">
+<h2>3.1 Negative Linear Trend Outliers</h2>
+
+<img data-src="Images/Negative_Linear_Trend_OL.png" style="width:82.0%" class="r-stretch"><div style="font-size:0.45em; text-align:center;">
+<p>Negative Linear Trend Outliers</p>
+</div>
+</section>
+<section id="normal-linear-trend-time-series" class="slide level2">
+<h2>3.1 Normal Linear Trend Time Series</h2>
+
+<img data-src="Images/Normal_Linear_Trend_TS.png" style="width:82.0%" class="r-stretch"><div style="font-size:0.45em; text-align:center;">
+<p>Normal Linear Trend Time Series</p>
+</div>
+</section>
+<section id="distribution-of-dbm-statistics" class="slide level2">
+<h2>4. Distribution of DBM Statistics</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<p><img data-src="Images/mean_DBM_hist.png" style="width:98.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Histogram of Mean DBM</p>
+</div>
+</div><div class="column" style="width:49%;">
+<p><img data-src="Images/median_DBM_hist.png" style="width:98.0%"></p>
+<div style="font-size:0.45em; text-align:center;">
+<p>Histogram of Median DBM</p>
+</div>
+</div></div>
+</section>
+<section id="dbm-outlier-maps" class="slide level2">
+<h2>4. DBM Outlier Maps</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/mean_DBM_map.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Mean Outliers Map</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/median_DBM_map.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Median Outliers Map</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/mean_median_DBM_map.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Combined Mean–Median Map</p>
+</div>
+</div></div>
+</section>
+<section id="mean-dbm-time-series" class="slide level2">
+<h2>4. Mean DBM Time-Series</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/mean_DBM_O_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Mean Outliers Time-Series</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/mean_DBM_NO_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Mean Non-Outliers Time-Series</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/mean_DBM_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Mean Overall Time-Series</p>
+</div>
+</div></div>
+</section>
+<section id="median-dbm-time-series" class="slide level2">
+<h2>4. Median DBM Time-Series</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/median_DBM_O_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Median Outliers Time-Series</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/median_DBM_NO_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Median Non-Outlier Time-Series</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/median_DBM_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+<p>Median Overall Time-Series</p>
+</div>
+</div></div>
+</section>
+<section id="section-6" class="slide level2" data-background-color="#000000">
 <h2></h2>
 <div style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;">
 <div style="position:absolute; top:34%; left:50%; transform:translate(-50%,-50%); font-size:92px; color:#FFFFFF; letter-spacing:2px;">
