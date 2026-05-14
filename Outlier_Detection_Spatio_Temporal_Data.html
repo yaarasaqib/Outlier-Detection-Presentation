@@ -880,7 +880,6 @@ SIR_{it}=\frac{Y_{it}}{E_{it}}.
 <div style="display:flex; justify-content:center; align-items:center; height:78vh;">
 <img src="Images/Sim_Region.png" style="width:78%; border:none; box-shadow:none;">
 </div>
-
 </section>
 <section id="hypothetical-study-region-1" class="slide level2">
 <h2>Hypothetical Study Region</h2>
@@ -1408,7 +1407,107 @@ border:none; box-shadow:none; border-radius:8px;">
 </div>
 </div></div>
 </section>
+<section id="using-modified-band-depth-mbd" class="slide level2">
+<h2>6.1 Using Modified Band Depth (MBD)</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/hist_mbd_values.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Histogram of MBD Values</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Outlier_MBD_Functional_Boxplot.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Functional Boxplot</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Outlier_Map_MBD_FBP.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Outlier Map</p>
+</div>
+</div></div>
+</section>
+<section id="mbd-time-series" class="slide level2">
+<h2>6.1 MBD Time-Series</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/MBD_FBP_O_ts.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Outlier Curves</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/MBD_FBP_NO_ts.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Non-Outlier Curves</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/MBD_Comb_ts.png" style="width:118.0%"></p>
+<div style="font-size:0.36em; text-align:center;">
+<p>Combined Curves</p>
+</div>
+</div></div>
+</section>
+<section id="massive-unsupervised-outlier-detection-muod" class="slide level2">
+<h2>7. Massive Unsupervised Outlier Detection (MUOD)</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/Amp_OL_map.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Amplitude Outlier Map</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Mag_OL_map.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Magnitude Outlier Map</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Shape_OL_map.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Shape Outlier Map</p>
+</div>
+</div></div>
+</section>
+<section id="muod-outlier-time-series" class="slide level2">
+<h2>7. MUOD Outlier Time-Series</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="Images/Amp_Comb_OL_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Amplitude Outlier TS</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Mag_Comb_OL_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Magnitude Outlier TS</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="Images/Shape_Comb_OL_ts.png" style="width:125.0%"></p>
+<div style="font-size:0.40em; text-align:center; margin-top:10px;">
+<p>Shape Outlier TS</p>
+</div>
+</div></div>
+</section>
 <section id="section-6" class="slide level2" data-background-color="#000000">
+<h2></h2>
+<div style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;">
+<p>Conclusion and Scope</p>
+</div>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li class="fragment"><p>Improved computational efficiency compared to SVTT.</p></li>
+<li class="fragment"><p>Outliers up to 5% of the total observations are accurately detected.</p></li>
+<li class="fragment"><p>Outlier detection using time-series information helps identify regions with unusual risk patterns compared to the majority of observations.</p></li>
+<li class="fragment"><p>Combining methods such as Depth + Trend can help detect unusual increasing or decreasing trends.</p></li>
+<li class="fragment"><p>Band depth methods perform well and can efficiently detect outliers even when contamination reaches up to 10%.</p></li>
+</ul>
+</section>
+<section id="section-7" class="slide level2" data-background-color="#000000">
 <h2></h2>
 <div style="position:relative; height:80vh; color:white; font-weight:700; overflow:hidden;">
 <div style="position:absolute; top:34%; left:50%; transform:translate(-50%,-50%); font-size:92px; color:#FFFFFF; letter-spacing:2px;">

@@ -811,18 +811,15 @@ $$
 Simulation Study Results
 :::
 
-
-
 ## Simulation Data Generation
 
-:::::::::: {style="font-size:0.62em; line-height:1.15;"}
-
+:::::::: {style="font-size:0.62em; line-height:1.15;"}
 ::: fragment
 Synthetic datasets were generated under different temporal trend scenarios to evaluate the performance of the proposed outlier detection methods.
 :::
 
 ::: fragment
-For each spatial unit \(i=1,\ldots,n\) and time point \(t=1,\ldots,T\),
+For each spatial unit (i=1,\ldots,n) and time point (t=1,\ldots,T),
 
 $$
 Y_{it}\sim \text{Poisson}(\lambda_{it}),
@@ -843,7 +840,6 @@ E_{it}=100.
 $$
 :::
 
-
 ::: fragment
 Both single-cluster and multiple-cluster settings were considered to assess the robustness of each method under varying spatial configurations.
 :::
@@ -855,11 +851,9 @@ $$
 SIR_{it}=\frac{Y_{it}}{E_{it}}.
 $$
 :::
+::::::::
 
-::::::::::
-
-
----
+------------------------------------------------------------------------
 
 ## Hypothetical Study Region
 
@@ -868,19 +862,16 @@ $$
 <img src="Images/Sim_Region.png"
 style="width:78%; border:none; box-shadow:none;">
 </div>
-
 ```
-
 
 ## Hypothetical Study Region
 
 ::: {style="font-size:0.6em; line-height:1.4;"}
+-   A hypothetical spatial region consisting of **40 counties** was generated using Voronoi tessellation.
 
-- A hypothetical spatial region consisting of **40 counties** was generated using Voronoi tessellation.
+-   Spatial locations were sam\$ to $31^\circ$
 
-- Spatial locations were sam$ to $31^\circ$
-
-- The study period spans from:
+-   The study period spans from:
 
 $$
 1980 \text{ to } 2000
@@ -892,13 +883,13 @@ $$
 21 \text{ yearly time points}
 $$
 
-- For simplicity, the population was assumed constant across all counties and years:
+-   For simplicity, the population was assumed constant across all counties and years:
 
 $$
 Population = 10{,}000
 $$
 
-- Let
+-   Let
 
 $$
 i = 1,2,\ldots,40
@@ -911,7 +902,6 @@ t = 1,2,\ldots,21
 $$
 
 denote the yearly time index.
-
 :::
 
 ## Simulated Temporal Trends
@@ -1130,185 +1120,149 @@ style="width:88%; display:block; margin:auto;
 border:none; box-shadow:none;">
 ```
 
-
-
-
 ##  {background-color="#000000"}
 
 ::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
 Application On Real Dataset
 :::
 
-
-
-
-
 ## Dengue Dataset
 
-:::: {.columns}
-
-::: {.column width="45%"}
-
-<div style="font-size:0.70em; line-height:1.25;">
-
+::::::: columns
+:::: {.column width="45%"}
+::: {style="font-size:0.70em; line-height:1.25;"}
 **Data Source**
 
-- Dengue incidence data were obtained from the publicly archived **Info Dengue** database.
+-   Dengue incidence data were obtained from the publicly archived **Info Dengue** database.
 
-- The dataset provides weekly dengue case counts for all municipalities in São Paulo, Brazil.
+-   The dataset provides weekly dengue case counts for all municipalities in São Paulo, Brazil.
 
-- Data source:  
-  https://info.dengue.mat.br/api
+-   Data source:\
+    https://info.dengue.mat.br/api
 
-- Study period:  
-  **1 April 2021 – 1 April 2024**
-
-</div>
-
+-   Study period:\
+    **1 April 2021 – 1 April 2024**
 :::
-
-::: {.column width="55%"}
-
-![](Images/ts_dengue.png){width=100%}
-
-<div style="font-size:0.42em; text-align:center;">
-SIR during Apr-2021 to Apr-2024
-</div>
-
-:::
-
 ::::
+
+:::: {.column width="55%"}
+![](Images/ts_dengue.png){width="100%"}
+
+::: {style="font-size:0.42em; text-align:center;"}
+SIR during Apr-2021 to Apr-2024
+:::
+::::
+:::::::
 
 ------------------------------------------------------------------------
 
-
-
 ## 1.1 SVTT Linear Analysis: Time Series
 
-:::: {.columns}
+::::::: columns
+:::: {.column width="48%"}
+![](Images/SVTT_Linear_Cluster1_TS.png){width="86%"}
 
-::: {.column width="48%"}
-![](Images/SVTT_Linear_Cluster1_TS.png){width=86%}
-
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Cluster 1 TS
-</div>
 :::
-
-::: {.column width="48%"}
-![](Images/SVTT_Linear_Cluster2_TS.png){width=86%}
-
-<div style="font-size:0.45em; text-align:center;">
-Cluster 2 TS
-</div>
-:::
-
 ::::
+
+:::: {.column width="48%"}
+![](Images/SVTT_Linear_Cluster2_TS.png){width="86%"}
+
+::: {style="font-size:0.45em; text-align:center;"}
+Cluster 2 TS
+:::
+::::
+:::::::
 
 \vspace{-0.35cm}
 
-:::: {.columns}
-
+::::::: columns
 ::: {.column width="27%"}
 :::
 
-::: {.column width="46%"}
-![](Images/SVTT_Linear_Non_Cluster_TS.png){width=76%}
+:::: {.column width="46%"}
+![](Images/SVTT_Linear_Non_Cluster_TS.png){width="76%"}
 
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Non-Cluster TS
-</div>
 :::
-
-::: {.column width="27%"}
-:::
-
 ::::
 
-
+::: {.column width="27%"}
+:::
+:::::::
 
 ## 1.1 SVTT Linear Analysis: Spatial Pattern and Trend
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-![](Images/SVTT_Linear_Map.png){width=100%}
+![](Images/SVTT_Linear_Map.png){width="100%"}
 
 \small Spatial Clusters Map
 :::
 
 ::: {.column width="50%"}
-![](Images/SVTT_Linear_fitted_Trend.png){width=100%}
+![](Images/SVTT_Linear_fitted_Trend.png){width="100%"}
 
 \small Fitted Linear Trend
 :::
-
-::::
-
+:::::
 
 ## 1.2 SVTT Quadratic Analysis: Time Series
 
-:::: {.columns}
+::::::: columns
+:::: {.column width="48%"}
+![](Images/SVTT_Quad_Cluster_1.png){width="86%"}
 
-::: {.column width="48%"}
-![](Images/SVTT_Quad_Cluster_1.png){width=86%}
-
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Cluster 1 TS
-</div>
 :::
-
-::: {.column width="48%"}
-![](Images/SVTT_Quad_Cluster_2_TS.png){width=86%}
-
-<div style="font-size:0.45em; text-align:center;">
-Cluster 2 TS
-</div>
-:::
-
 ::::
+
+:::: {.column width="48%"}
+![](Images/SVTT_Quad_Cluster_2_TS.png){width="86%"}
+
+::: {style="font-size:0.45em; text-align:center;"}
+Cluster 2 TS
+:::
+::::
+:::::::
 
 \vspace{-0.35cm}
 
-:::: {.columns}
-
+::::::: columns
 ::: {.column width="27%"}
 :::
 
-::: {.column width="46%"}
-![](Images/SVTT_Quad_Non_Cluster.png){width=76%}
+:::: {.column width="46%"}
+![](Images/SVTT_Quad_Non_Cluster.png){width="76%"}
 
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Non-Cluster TS
-</div>
 :::
-
-::: {.column width="27%"}
-:::
-
 ::::
 
+::: {.column width="27%"}
+:::
+:::::::
 
 ## 1.2 SVTT Quadratic Analysis: Spatial Pattern and Trend
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="49%"}
-![](Images/SVTT_Quad_Map.png){width=92%}
+![](Images/SVTT_Quad_Map.png){width="92%"}
 
 \small Spatial Clusters Map
 :::
 
 ::: {.column width="49%"}
-![](Images/SVTT_Quad_Fitted_Trend.png){width=92%}
+![](Images/SVTT_Quad_Fitted_Trend.png){width="92%"}
 
 \small Fitted Quadratic Trend
 :::
-
-::::
-
-
-
+:::::
 
 ## 2. Functional Boxplot Summary
 
@@ -1318,9 +1272,9 @@ style="width:82%; display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
 ```
 
-<div style="font-size:0.55em; text-align:center; margin-top:8px;">
+::: {style="font-size:0.55em; text-align:center; margin-top:8px;"}
 Min, Max, Median, Q1, and Q3 curves.
-</div>
+:::
 
 ------------------------------------------------------------------------
 
@@ -1332,401 +1286,481 @@ style="width:82%; display:block; margin:auto;
 border:none; box-shadow:none; border-radius:8px;">
 ```
 
-<div style="font-size:0.55em; text-align:center; margin-top:8px;">
+::: {style="font-size:0.55em; text-align:center; margin-top:8px;"}
 Min, Q1, Median, and Q3 curves with reduced y-axis.
-</div>
+:::
 
 ------------------------------------------------------------------------
 
-
 ## 3.1Linear Trend Outliers: Spatial Map
 
-![](Images/map_Linear_Trend_OL.png){width=82%}
+![](Images/map_Linear_Trend_OL.png){width="82%"}
 
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Map of Linear Trend Outliers
-</div>
-
-
+:::
 
 ## 3.1 Positive Linear Trend Outliers
 
-![](Images/Positive_linear_Trend_OL.png){width=82%}
+![](Images/Positive_linear_Trend_OL.png){width="82%"}
 
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Positive Linear Trend Outliers
-</div>
-
+:::
 
 ## 3.1 Negative Linear Trend Outliers
 
-![](Images/Negative_Linear_Trend_OL.png){width=82%}
+![](Images/Negative_Linear_Trend_OL.png){width="82%"}
 
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Negative Linear Trend Outliers
-</div>
+:::
 
+## 3.1 Normal Linear Trend Time Series
 
-## 3.1  Normal Linear Trend Time Series
+![](Images/Normal_Linear_Trend_TS.png){width="82%"}
 
-![](Images/Normal_Linear_Trend_TS.png){width=82%}
-
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Normal Linear Trend Time Series
-</div>
-
-
+:::
 
 ## 4. Distribution of DBM Statistics
 
-
 <br><br>
 
-:::: {.columns}
+::::::: columns
+:::: {.column width="49%"}
+![](Images/mean_DBM_hist.png){width="98%"}
 
-::: {.column width="49%"}
-![](Images/mean_DBM_hist.png){width=98%}
-
-<div style="font-size:0.45em; text-align:center;">
+::: {style="font-size:0.45em; text-align:center;"}
 Histogram of Mean DBM
-</div>
 :::
-
-::: {.column width="49%"}
-![](Images/median_DBM_hist.png){width=98%}
-
-<div style="font-size:0.45em; text-align:center;">
-Histogram of Median DBM
-</div>
-:::
-
 ::::
+
+:::: {.column width="49%"}
+![](Images/median_DBM_hist.png){width="98%"}
+
+::: {style="font-size:0.45em; text-align:center;"}
+Histogram of Median DBM
+:::
+::::
+:::::::
+
 ## 4. DBM Outlier Maps
 
 <br><br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/mean_DBM_map.png){width="125%"}
 
-::: {.column width="33%"}
-
-![](Images/mean_DBM_map.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
 Mean Outliers Map
-</div>
-
 :::
-
-::: {.column width="33%"}
-
-![](Images/median_DBM_map.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Median Outliers Map
-</div>
-
-:::
-
-::: {.column width="33%"}
-
-![](Images/mean_median_DBM_map.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Combined Mean–Median Map
-</div>
-
-:::
-
 ::::
 
+:::: {.column width="33%"}
+![](Images/median_DBM_map.png){width="125%"}
+
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Median Outliers Map
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/mean_median_DBM_map.png){width="125%"}
+
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Combined Mean–Median Map
+:::
+::::
+:::::::::
 
 ## 4. Mean DBM Time-Series
 
 <br><br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/mean_DBM_O_ts.png){width="125%"}
 
-::: {.column width="33%"}
-
-![](Images/mean_DBM_O_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
 Mean Outliers Time-Series
-</div>
-
 :::
-
-::: {.column width="33%"}
-
-![](Images/mean_DBM_NO_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Mean Non-Outliers Time-Series
-</div>
-
-:::
-
-::: {.column width="33%"}
-
-![](Images/mean_DBM_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Mean Overall Time-Series
-</div>
-
-:::
-
 ::::
 
+:::: {.column width="33%"}
+![](Images/mean_DBM_NO_ts.png){width="125%"}
 
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Mean Non-Outliers Time-Series
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/mean_DBM_ts.png){width="125%"}
+
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Mean Overall Time-Series
+:::
+::::
+:::::::::
 
 ## 4. Median DBM Time-Series
 
 <br><br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/median_DBM_O_ts.png){width="125%"}
 
-::: {.column width="33%"}
-
-![](Images/median_DBM_O_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
 Median Outliers Time-Series
-</div>
-
 :::
-
-::: {.column width="33%"}
-
-![](Images/median_DBM_NO_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Median Non-Outlier Time-Series
-</div>
-
-:::
-
-::: {.column width="33%"}
-
-![](Images/median_DBM_ts.png){width=125%}
-
-<div style="font-size:0.42em; text-align:center; margin-top:10px;">
-Median Overall Time-Series
-</div>
-
-:::
-
 ::::
 
+:::: {.column width="33%"}
+![](Images/median_DBM_NO_ts.png){width="125%"}
+
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Median Non-Outlier Time-Series
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/median_DBM_ts.png){width="125%"}
+
+::: {style="font-size:0.42em; text-align:center; margin-top:10px;"}
+Median Overall Time-Series
+:::
+::::
+:::::::::
 
 ## 5. Combined Depth Outliers
 
 <br><br>
 
-:::: {.columns}
+::::::: columns
+:::: {.column width="65%"}
+![](Images/comb_depth_o_map.png){width="100%"}
 
-::: {.column width="65%"}
-
-![](Images/comb_depth_o_map.png){width=100%}
-
-<div style="font-size:0.45em; text-align:center; margin-top:10px;">
+::: {style="font-size:0.45em; text-align:center; margin-top:10px;"}
 Combined Outlier Map
-</div>
-
 :::
-
-::: {.column width="35%"}
-
-![](Images/venn_dig_depth.png){width=88%}
-
-<div style="font-size:0.45em; text-align:center; margin-top:10px;">
-Venn Diagram Comparison
-</div>
-
-:::
-
 ::::
 
+:::: {.column width="35%"}
+![](Images/venn_dig_depth.png){width="88%"}
 
+::: {style="font-size:0.45em; text-align:center; margin-top:10px;"}
+Venn Diagram Comparison
+:::
+::::
+:::::::
 
-
-
-
-
-
-
-## 5.  Depth Histograms
+## 5. Depth Histograms
 
 <br><br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/hist_malhanobis.png){width="118%"}
 
-::: {.column width="33%"}
-![](Images/hist_malhanobis.png){width=118%}
-
-<div style="font-size:0.36em; text-align:center;">
+::: {style="font-size:0.36em; text-align:center;"}
 Mahalanobis Depth
-</div>
 :::
-
-::: {.column width="33%"}
-![](Images/hist_tukey.png){width=118%}
-
-<div style="font-size:0.36em; text-align:center;">
-Tukey Depth
-</div>
-:::
-
-::: {.column width="33%"}
-![](Images/hist_projection.png){width=118%}
-
-<div style="font-size:0.36em; text-align:center;">
-Projection Depth
-</div>
-:::
-
 ::::
 
+:::: {.column width="33%"}
+![](Images/hist_tukey.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Tukey Depth
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/hist_projection.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Projection Depth
+:::
+::::
+:::::::::
 
 ## 5. Depth Maps
 
 <br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/malhanobis_depth_map.png){width="128%"}
 
-::: {.column width="33%"}
-![](Images/malhanobis_depth_map.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
+::: {style="font-size:0.40em; text-align:center;"}
 Mahalanobis Depth Map
-</div>
 :::
-
-::: {.column width="33%"}
-![](Images/tukey_depth_map.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Tukey Depth Map
-</div>
-:::
-
-::: {.column width="33%"}
-![](Images/projection_depth_map.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Projection Depth Map
-</div>
-:::
-
 ::::
 
----
+:::: {.column width="33%"}
+![](Images/tukey_depth_map.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Tukey Depth Map
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/projection_depth_map.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Projection Depth Map
+:::
+::::
+:::::::::
+
+------------------------------------------------------------------------
 
 ## 5. Outlier Time-Series
 
 <br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/sir_malhanobis_O_ts.png){width="128%"}
 
-::: {.column width="33%"}
-![](Images/sir_malhanobis_O_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
+::: {style="font-size:0.40em; text-align:center;"}
 Mahalanobis Outlier TS
-</div>
 :::
-
-::: {.column width="33%"}
-![](Images/sir_tukey_O_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Tukey Outlier TS
-</div>
-:::
-
-::: {.column width="33%"}
-![](Images/sir_projection_O_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Projection Outlier TS
-</div>
-:::
-
 ::::
 
----
+:::: {.column width="33%"}
+![](Images/sir_tukey_O_ts.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Tukey Outlier TS
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/sir_projection_O_ts.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Projection Outlier TS
+:::
+::::
+:::::::::
+
+------------------------------------------------------------------------
 
 ## 5. Non-Outlier Time-Series
 
 <br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/sir_malhanobis_NO_ts.png){width="128%"}
 
-::: {.column width="33%"}
-![](Images/sir_malhanobis_NO_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
+::: {style="font-size:0.40em; text-align:center;"}
 Mahalanobis Non-Outlier TS
-</div>
 :::
-
-::: {.column width="33%"}
-![](Images/sir_tukey_NO_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Tukey Non-Outlier TS
-</div>
-:::
-
-::: {.column width="33%"}
-![](Images/sir_projection_NO_ts.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Projection Non-Outlier TS
-</div>
-:::
-
 ::::
 
----
+:::: {.column width="33%"}
+![](Images/sir_tukey_NO_ts.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Tukey Non-Outlier TS
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/sir_projection_NO_ts.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Projection Non-Outlier TS
+:::
+::::
+:::::::::
+
+------------------------------------------------------------------------
 
 ## 5. Combined Time-Series
 
 <br>
 
-:::: {.columns}
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/sir_malhanobis_comb.png){width="128%"}
 
-::: {.column width="33%"}
-![](Images/sir_malhanobis_comb.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
+::: {style="font-size:0.40em; text-align:center;"}
 Mahalanobis Combined TS
-</div>
 :::
-
-::: {.column width="33%"}
-![](Images/sir_tukey_comb.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Tukey Combined TS
-</div>
-:::
-
-::: {.column width="33%"}
-![](Images/sir_projection_comb.png){width=128%}
-
-<div style="font-size:0.40em; text-align:center;">
-Projection Combined TS
-</div>
-:::
-
 ::::
 
+:::: {.column width="33%"}
+![](Images/sir_tukey_comb.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Tukey Combined TS
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/sir_projection_comb.png){width="128%"}
+
+::: {style="font-size:0.40em; text-align:center;"}
+Projection Combined TS
+:::
+::::
+:::::::::
+
+## 6.1 Using Modified Band Depth (MBD)
+
+<br><br>
+
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/hist_mbd_values.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Histogram of MBD Values
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Outlier_MBD_Functional_Boxplot.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Functional Boxplot
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Outlier_Map_MBD_FBP.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Outlier Map
+:::
+::::
+:::::::::
+
+## 6.1 MBD Time-Series
+
+<br><br>
+
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/MBD_FBP_O_ts.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Outlier Curves
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/MBD_FBP_NO_ts.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Non-Outlier Curves
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/MBD_Comb_ts.png){width="118%"}
+
+::: {style="font-size:0.36em; text-align:center;"}
+Combined Curves
+:::
+::::
+:::::::::
+
+## 7. Massive Unsupervised Outlier Detection (MUOD)
+
+<br><br>
+
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/Amp_OL_map.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Amplitude Outlier Map
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Mag_OL_map.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Magnitude Outlier Map
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Shape_OL_map.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Shape Outlier Map
+:::
+::::
+:::::::::
+
+## 7. MUOD Outlier Time-Series
+
+<br><br>
+
+::::::::: columns
+:::: {.column width="33%"}
+![](Images/Amp_Comb_OL_ts.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Amplitude Outlier TS
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Mag_Comb_OL_ts.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Magnitude Outlier TS
+:::
+::::
+
+:::: {.column width="33%"}
+![](Images/Shape_Comb_OL_ts.png){width="125%"}
+
+::: {style="font-size:0.40em; text-align:center; margin-top:10px;"}
+Shape Outlier TS
+:::
+::::
+:::::::::
+
+
+
+##  {background-color="#000000"}
+
+::: {style="height:80vh; display:flex; justify-content:center; align-items:center; font-size:64px; font-weight:700; color:white; letter-spacing:2px;"}
+Conclusion and Scope
+
+:::
 
 
 
 
+## Conclusion
 
+::: incremental
+
+- Improved computational efficiency compared to SVTT.
+
+- Outliers up to 5% of the total observations are accurately detected.
+
+- Outlier detection using time-series information helps identify regions with unusual risk patterns compared to the majority of observations.
+
+- Combining methods such as Depth + Trend can help detect unusual increasing or decreasing trends.
+
+- Band depth methods perform well and can efficiently detect outliers even when contamination reaches up to 10%.
+
+:::
 
 
 
